@@ -157,26 +157,23 @@ git<span class="w"> </span>branch<span class="w"> </span>-a
 </pre></div>
 </div>
 <p>The branch commands were to rename the main branch as rolling in accordance with the ROS2 policy.</p>
-<p>Now the actual command to push code to github:
-.. code-block:: bash</p>
-<blockquote>
-<div><p>git push -u origin rolling</p>
-</div></blockquote>
+<p>Now the actual command to push code to github:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>rolling
+</pre></div>
+</div>
 <p>Only the first time you push a branch to a remote repository, you need to use the <code class="docutils literal notranslate"><span class="pre">-u</span> <span class="pre">remote_reopsitory</span> <span class="pre">local</span> <span class="pre">branch</span></code> option. This option sets the upstream branch for the branch you are pushing. After that, you can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> without the <code class="docutils literal notranslate"><span class="pre">-u</span></code> option.</p>
 <p>Now, you should see the files on github.</p>
 </section>
 <section id="creer-le-workflow-git-et-voir-la-documentation-apparaitre-sur-le-web-en-temps-reel">
 <h2>Créer le workflow git et voir la documentation apparaître sur le web en temps réel<a class="headerlink" href="#creer-le-workflow-git-et-voir-la-documentation-apparaitre-sur-le-web-en-temps-reel" title="Lien vers cette rubrique"></a></h2>
-<p>Regarder les branches existantes:
-.. code-block:: bash</p>
-<blockquote>
-<div><p>git branch -a</p>
-</div></blockquote>
-<p>Créer la branche <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> vide:
-.. code-block:: bash</p>
-<blockquote>
-<div><p>git switch –orphan gh-pages</p>
-</div></blockquote>
+<p>Regarder les branches existantes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>branch<span class="w"> </span>-a
+</pre></div>
+</div>
+<p>Créer la branche <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> vide:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>switch<span class="w"> </span>--orphan<span class="w"> </span>gh-pages
+</pre></div>
+</div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>branch<span class="w"> </span>-a
 </pre></div>
 </div>

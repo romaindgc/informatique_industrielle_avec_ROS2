@@ -92,6 +92,7 @@ Effectuez les commandes suivantes:
 The branch commands were to rename the main branch as rolling in accordance with the ROS2 policy.
 
 Now the actual command to push code to github:
+
 .. code-block:: bash
 
    git push -u origin rolling
@@ -106,11 +107,13 @@ Créer le workflow git et voir la documentation apparaître sur le web en temps 
 
 
 Regarder les branches existantes:
+
 .. code-block:: bash
 
    git branch -a
 
 Créer la branche ``gh-pages`` vide:
+
 .. code-block:: bash
 
    git switch --orphan gh-pages
