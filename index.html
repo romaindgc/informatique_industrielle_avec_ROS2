@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cours d’Informatique Industrielle avec ROS2 &mdash; Documentation Cours d&#39;Informatique Industrielle avec ROS2 1.0.0</title>
+  <title>Index, figures et tableaux &mdash; Documentation Cours d&#39;Informatique Industrielle avec ROS2 1.0.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
@@ -24,7 +24,8 @@
       <script src="_static/translations.js?v=e6b791cb"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Recherche" href="search.html" /> 
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Cours d’Informatique Industrielle avec ROS2" href="introduction/p00s01_intro.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,20 +47,17 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Cours d’Informatique Industrielle avec ROS2</a><ul>
-<li><a class="reference internal" href="#introduction-au-developpement-informatique-industriel-avec-ros2">Introduction au développement informatique industriel avec ROS2</a><ul>
-<li><a class="reference internal" href="#qu-est-ce-qu-un-logiciel-de-qualite">Qu’est-ce qu’un logiciel de qualité ?</a></li>
-<li><a class="reference internal" href="#deroule-du-cours">Déroulé du cours</a></li>
-<li><a class="reference internal" href="#performances">Performances</a></li>
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction/p00s01_intro.html">Cours d’Informatique Industrielle avec ROS2</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#index-figures-et-tableaux">Index, figures et tableaux</a></li>
+<p class="caption" role="heading"><span class="caption-text">Premier projet &amp; Doc</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="create_and_publish_doc/p01s01_quality_docs.html">Premier projet avec de la doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_and_publish_doc/p01s02_create_and_publish_doc.html">Création du projet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_and_publish_doc/p01s03_git.html">Introduction au versionning avec git</a></li>
 </ul>
-</li>
-</ul>
-</div>
+
         </div>
       </div>
     </nav>
@@ -74,7 +72,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Cours d’Informatique Industrielle avec ROS2</li>
+      <li class="breadcrumb-item active">Index, figures et tableaux</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> Afficher la source de la page</a>
       </li>
@@ -84,86 +82,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="cours-d-informatique-industrielle-avec-ros2">
-<h1>Cours d’Informatique Industrielle avec ROS2<a class="headerlink" href="#cours-d-informatique-industrielle-avec-ros2" title="Lien vers cette rubrique"></a></h1>
-<div class="toctree-wrapper compound">
-</div>
-<section id="introduction-au-developpement-informatique-industriel-avec-ros2">
-<h2>Introduction au développement informatique industriel avec ROS2<a class="headerlink" href="#introduction-au-developpement-informatique-industriel-avec-ros2" title="Lien vers cette rubrique"></a></h2>
-<div class="line-block">
-<div class="line">Ce cours est une introduction pratique aux bonnes pratiques de développement informatique en prenant comme cas d’étude le développement de logiciels pour des applications robotiques avec ROS2. ROS2 crée un environnement de développement logiciel générique pour la robotique.</div>
-<div class="line">La robotique étant un très très vaste domaine rassemblant des domaines variés: mécanique, électronique, informatique, intelligence artificielle, contrôle, vision, etc, la quantité de logiciels disponibles à travers ROS2 est très importante. Elle donne la possibilité de développer des applications robotiques complexes en combinant des logiciels existants.</div>
-<div class="line">Pour ce cours cela permet d’étudier un système avancé de développement logiciel permettant d’intégrer des logiciels de différentes natures tout en conservant une cohérence d’ensemble et une qualité de développement la plus grande possible.</div>
-<div class="line">Ce sont des qualités essentielles pour un projet informatique moderne et sont très recherchées dans l’informatique et l’industrie de la robotique.</div>
-</div>
-<p>ROS2 (Robot Operating System version 2) est conçu pour être utilisé dans des applications industrielles et commerciales, et fournit des outils et des bibliothèques très avancés pour le développement de logiciels pour les robots. Il est basé sur des standards industriels et est conçu pour être utilisé dans des environnements de production.</p>
-<p>C’est donc un cas d’étude particulièrement intéressant pour l’apprentissage des bonnes pratiques de développement logiciel.</p>
-<section id="qu-est-ce-qu-un-logiciel-de-qualite">
-<h3>Qu’est-ce qu’un logiciel de qualité ?<a class="headerlink" href="#qu-est-ce-qu-un-logiciel-de-qualite" title="Lien vers cette rubrique"></a></h3>
-<div class="line-block">
-<div class="line">Un logiciel de qualité est un logiciel qui fait ce qu’on lui demande de faire sans erreur ni faille de sécurité, qui est facile à utiliser et qui est facile à maintenir et à faire évoluer.</div>
-<div class="line">Pour ce faire il comporte souvent des librairies permettant un développement modulaire ainsi que la possibilité d’utiliser les fonctionnalités développées pour le logiciel dans d’autres logiciels.</div>
-<div class="line">Pour garantir la fiabilité du logiciel, il est important de concevoir <strong>des tests</strong> dès la conception du logiciel et d”<strong>exécuter lest tests</strong> régulièrement pour garantir que le logiciel fonctionne correctement.</div>
-<div class="line">Enfin un logiciel de qualité a un système de <strong>reporting des erreurs et des bugs</strong> qui permet que lorsque des erreurs en production surviennent, celles-ci soient automatiquement loguées et transmises aux développeurs chargés de la maintenance poru qu’ils puissent les corriger rapidement.</div>
-<div class="line">Enfin un logiciel de qualité peut se <strong>mettre à jour automatiquement</strong> pour corriger les erreurs et les bugs et pour ajouter de nouvelles fonctionnalités.</div>
-</div>
-<div class="line-block">
-<div class="line">Pour un industriel, développer un logiciel coûte de l’argent: le salaire des développeurs. Un point très important pour un industriel est de contrôler le coût de développement de son logiciel.</div>
-<div class="line">Pour cela il est important de faciliter au maximum le développement, la maintenance et l’évolution du logiciel.</div>
-<div class="line">Un point essentiel pour cela est la <strong>qualité de la documentation</strong> du logiciel.</div>
-</div>
-<dl class="simple">
-<dt>En résumé, un logiciel de qualité est un logiciel qui:</dt><dd><ul class="simple">
-<li><p>Fait ce qu’on lui demande de faire sans erreur ni faille de sécurité</p></li>
-<li><p>Est facile à utiliser</p></li>
-<li><p>Est facile à maintenir et à faire évoluer</p></li>
-<li><p>Est bien documenté</p></li>
-<li><p>Est testé régulièrement</p></li>
-<li><p>A un système de reporting des erreurs et des bugs</p></li>
-<li><p>Peut se mettre à jour automatiquement</p></li>
+  <div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction/p00s01_intro.html">Cours d’Informatique Industrielle avec ROS2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction/p00s01_intro.html#introduction-au-developpement-informatique-industriel-avec-ros2">Introduction au développement informatique industriel avec ROS2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/p00s01_intro.html#deroule-du-cours">Déroulé du cours</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/p00s01_intro.html#performances">Performances</a></li>
 </ul>
-</dd>
-</dl>
-</section>
-<section id="deroule-du-cours">
-<h3>Déroulé du cours<a class="headerlink" href="#deroule-du-cours" title="Lien vers cette rubrique"></a></h3>
-<dl class="simple">
-<dt>Ce cours vous propose de découvrir l’aventure de la création d’un logiciel pour la robotique depuis sa conception jusqu’à sa mise en production.</dt><dd><ol class="arabic simple">
-<li><p>Nous allons nous focaliser d’abord sur la documentation et le système de suivi de version du logiciel.</p></li>
-<li><p>Ensuite nous allons étudier comment créer un système de tests automatisés pour C++ et Python.</p></li>
-<li><p>Nous verrons comment utiliser les outils de debugging gdb et valgrind pour identifier, localiser et prévenir les erreurs.</p></li>
-<li><p>Nous présenterons le reporting d’erreur et les systèmes de mise-à-jour automatiques.</p></li>
-</ol>
-</dd>
-</dl>
-<div class="line-block">
-<div class="line">Tout au long de ce cours nous utiliserons le système ROS2 et des packages particulier de ROS2 pour illustrer les concepts abordés.</div>
-<div class="line">Pour ce cours vous développerez un logiciel de contrôle d’un robot déployé sur un raspberry pi.</div>
+</li>
+</ul>
 </div>
-</section>
-<section id="performances">
-<h3>Performances<a class="headerlink" href="#performances" title="Lien vers cette rubrique"></a></h3>
-<div class="line-block">
-<div class="line">Vous avez peut-être noté que nous n’aborderons pas la performance et l’optimisation du code dans ce cours.</div>
-<div class="line">En effet, contrairement à ce que beaucoup de développeurs débutants pensent, la performance au sens de la rapidité d’exécution du code n’est pas un critère de qualité d’un logiciel dans la mesure où le code est suffisamment rapide pour répondre aux besoins de l’utilisateur.</div>
-<div class="line">Cela paraît paradoxal, mais si le logiciel va assez vite pour que sa vitesse d’exécution ne soit pas un problème pour l’utilisateur, alors il n’est pas nécessaire d’optimiser le code.</div>
-<div class="line">Plus important, il ne faut absolument pas optimiser le code avant d’avoir des tests automatisés qui garantissent que le code fonctionne correctement.</div>
-<div class="line">Ceux-ci pourront, en effet, être utilisés par la suite pour vérifier que les optimisations n’ont pas introduit de bugs dans le code.</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Premier projet &amp; Doc</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="create_and_publish_doc/p01s01_quality_docs.html">Premier projet avec de la doc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="create_and_publish_doc/p01s01_quality_docs.html#exemple-de-documentations-de-qualite">Exemple de documentations de qualité</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="create_and_publish_doc/p01s02_create_and_publish_doc.html">Création du projet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="create_and_publish_doc/p01s02_create_and_publish_doc.html#premiers-pas-avec-l-editeur-ide-de-code-vscode">Premiers pas avec l’éditeur (IDE) de code vscode</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="create_and_publish_doc/p01s03_git.html">Introduction au versionning avec git</a></li>
+</ul>
 </div>
-</section>
-</section>
 <section id="index-figures-et-tableaux">
-<h2>Index, figures et tableaux<a class="headerlink" href="#index-figures-et-tableaux" title="Lien vers cette rubrique"></a></h2>
+<h1>Index, figures et tableaux<a class="headerlink" href="#index-figures-et-tableaux" title="Lien vers cette rubrique"></a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 </ul>
-</section>
 </section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="introduction/p00s01_intro.html" class="btn btn-neutral float-right" title="Cours d’Informatique Industrielle avec ROS2" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

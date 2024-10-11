@@ -1,0 +1,145 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Création d’une première documentation sphinx &mdash; Documentation Cours d&#39;Informatique Industrielle avec ROS2 1.0.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5013d55b" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=05dadb3a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/translations.js?v=e6b791cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cours d'Informatique Industrielle avec ROS2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/p00s01_intro.html">Cours d’Informatique Industrielle avec ROS2</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Premier projet &amp; Doc</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p01s01_quality_docs.html">Premier projet avec de la doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01s02_create_and_publish_doc.html">Création du projet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01s03_git.html">Introduction au versionning avec git</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cours d'Informatique Industrielle avec ROS2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Création d’une première documentation sphinx</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/create_and_publish_doc/p01s04_create_doc.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="creation-d-une-premiere-documentation-sphinx">
+<h1>Création d’une première documentation sphinx<a class="headerlink" href="#creation-d-une-premiere-documentation-sphinx" title="Lien vers cette rubrique"></a></h1>
+<section id="installer-sphinx">
+<h2>Installer sphinx<a class="headerlink" href="#installer-sphinx" title="Lien vers cette rubrique"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-sphinx
+</pre></div>
+</div>
+<p>Créer un répertoire pour la documentation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>doc
+</pre></div>
+</div>
+<p>Créer un fichier requirments.txt pour les dépendances de la documentation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>~/info_indus/info_indus_tutorial/doc/requirements.txt
+</pre></div>
+</div>
+<p>Ajouter les dépendances suivantes dans le fichier <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> avec vscode:</p>
+<p>Installer les dépendances:</p>
+</section>
+<section id="creer-la-documentation">
+<h2>Créer la documentation<a class="headerlink" href="#creer-la-documentation" title="Lien vers cette rubrique"></a></h2>
+<p>Initialiser la documentation avec les outils sphinx:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/info_indus/info_indus_tutorial/doc
+sphinx-quickstart<span class="w"> </span>sphinx
+</pre></div>
+</div>
+<p>Répondre aux questions posées par sphinx-quickstart, pour le nom du projet mettez les initiales des personnes de votre groupe suivi de <code class="docutils literal notranslate"><span class="pre">info_indus_tutorial</span></code>. Par exemple, pour le groupe d” Amélie POULAIN, Jean DUPONT et Nikita TESTU, le nom du projet sera <code class="docutils literal notranslate"><span class="pre">PaDjTn_info_indus_tutorial</span></code>.</p>
+<p>Regarder avec git les nouveaux fichiers créés:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>status
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Manuel YGUEL.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
