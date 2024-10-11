@@ -16,6 +16,8 @@
    create_and_publish_doc/p01s01_quality_docs
    create_and_publish_doc/p01s02_create_and_publish_doc
    create_and_publish_doc/p01s03_git
+   create_and_publish_doc/p01s04_create_doc
+   create_and_publish_doc/p01s05_www_doc
 
 
 **************************

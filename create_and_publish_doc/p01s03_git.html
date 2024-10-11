@@ -25,6 +25,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Création d’une première documentation sphinx" href="p01s04_create_doc.html" />
     <link rel="prev" title="Création du projet" href="p01s02_create_and_publish_doc.html" /> 
 </head>
 
@@ -56,6 +57,8 @@
 <li class="toctree-l1"><a class="reference internal" href="p01s01_quality_docs.html">Premier projet avec de la doc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01s02_create_and_publish_doc.html">Création du projet</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction au versionning avec git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01s04_create_doc.html">Création d’une première documentation sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01s05_www_doc.html">Publier la documentation</a></li>
 </ul>
 
         </div>
@@ -93,6 +96,49 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>init
 </pre></div>
 </div>
+<p>Cela crée un répertoire caché <code class="docutils literal notranslate"><span class="pre">.git</span></code> à la racine de votre projet. Ce répertoire contient toutes les informations nécessaires pour gérer les versions de votre projet.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il est important de ne pas supprimer ou modifier le répertoire <code class="docutils literal notranslate"><span class="pre">.git</span></code>. Cela pourrait corrompre votre dépôt git.</p>
+</div>
+<p>Pour voir l’état de votre dépôt git, tapez la commande suivante:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>status
+</pre></div>
+</div>
+<p>Nous voyons que notre répertoire <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> apparaît en rouge dans la section <code class="docutils literal notranslate"><span class="pre">Untracked</span> <span class="pre">files</span></code>. Cela signifie que git ne suit pas les modifications de ce répertoire.</p>
+<p>Nous emploierons souvent cette commande pour voir l’état de notre dépôt git.</p>
+<p>Nous allons ajouter le répertoire <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> à notre dépôt git. Pour cela, tapez la commande suivante:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.vscode
+</pre></div>
+</div>
+<p>Le répertoire ainsi que les fichiers qu’il contient sont maintenant suivis par git.
+Nous pouvons voir l’état de notre dépôt git en tapant la commande suivante:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>status
+</pre></div>
+</div>
+<p>Nous voyons que le répertoire <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> est ajouté par git, mais il n’est pas encore enregistré dans l’historique de git.</p>
+<p>Pour enregistrer ces modifications dans l’historique de git, tapez la commande suivante:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;First commit&quot;</span>
+</pre></div>
+</div>
+<p>Git ne doit pas être configuré et il vous demande de mettre des variables à jour. Faites le en suivant les instructions.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;mon.email@insa-strasbourg.fr&quot;</span>
+git<span class="w"> </span>config<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Prénom NOM&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>L’option <code class="docutils literal notranslate"><span class="pre">--global</span></code> est pour que ces informations soient utilisées pour tous les projets git de votre machine, comme les machines sont partagées, il est préférable de ne pas mettre ces informations globalement, mais par projet.</p>
+</div>
+<p>Maintenant votre premier commit devrait fonctionner:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;First commit&quot;</span>
+</pre></div>
+</div>
+<p>Cela enregistre les modifications dans l’historique de git avec le message <code class="docutils literal notranslate"><span class="pre">First</span> <span class="pre">commit</span></code>.</p>
+<p>On peut voir l’historique des commits en tapant la commande suivante:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>log
+</pre></div>
+</div>
 </section>
 
 
@@ -100,6 +146,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
         <a href="p01s02_create_and_publish_doc.html" class="btn btn-neutral float-left" title="Création du projet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="p01s04_create_doc.html" class="btn btn-neutral float-right" title="Création d’une première documentation sphinx" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

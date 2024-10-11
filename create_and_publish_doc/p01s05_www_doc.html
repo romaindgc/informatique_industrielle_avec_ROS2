@@ -1,0 +1,199 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publier la documentation &mdash; Documentation Cours d&#39;Informatique Industrielle avec ROS2 1.0.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5013d55b" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=05dadb3a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/translations.js?v=e6b791cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="prev" title="Création d’une première documentation sphinx" href="p01s04_create_doc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cours d'Informatique Industrielle avec ROS2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/p00s01_intro.html">Cours d’Informatique Industrielle avec ROS2</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Premier projet &amp; Doc</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="p01s01_quality_docs.html">Premier projet avec de la doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01s02_create_and_publish_doc.html">Création du projet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01s03_git.html">Introduction au versionning avec git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01s04_create_doc.html">Création d’une première documentation sphinx</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Publier la documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creer-un-compte-sur-github">Créer un compte sur github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creer-un-depot-sur-github">Créer un dépôt sur github</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creer-une-cle-ssh-et-l-ajouter-a-github">Créer une clé ssh et l’ajouter à github</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#poussez-le-projet-sur-github">Poussez le projet sur github</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cours d'Informatique Industrielle avec ROS2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Publier la documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/create_and_publish_doc/p01s05_www_doc.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="publier-la-documentation">
+<h1>Publier la documentation<a class="headerlink" href="#publier-la-documentation" title="Lien vers cette rubrique"></a></h1>
+<p>Nous allons maintenant publier la documentation sur le web mais aussi sauvegarder notre projet sur un serveur git distant afin de le partager avec d’autres personnes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour pouvoir partager le projet et sa documentation, il faut que le projet soit sur un serveur git distant, accessible par tout utilisateur que vous avez autorisé et tout le temps.
+Dans ce tutoriel nous allons créer un projet publique sur <code class="docutils literal notranslate"><span class="pre">github</span></code></p>
+</div>
+<section id="creer-un-compte-sur-github">
+<h2>Créer un compte sur github<a class="headerlink" href="#creer-un-compte-sur-github" title="Lien vers cette rubrique"></a></h2>
+<p>Si vous avez déjà un compte github, vous pouvez passer à la section suivante et utiliser votre compte.</p>
+<p>Pour créer un compte sur github, allez sur le site <a class="reference external" href="https://github.com/">github</a> et cliquez sur le bouton <code class="docutils literal notranslate"><span class="pre">Sign</span> <span class="pre">up</span></code> en haut à droite ou cliquez sur le lien: <a class="reference external" href="https://github.com/signup">github signup</a>. Remplissez les informations demandées et cliquez sur le bouton <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">account</span></code>.</p>
+</section>
+<section id="creer-un-depot-sur-github">
+<h2>Créer un dépôt sur github<a class="headerlink" href="#creer-un-depot-sur-github" title="Lien vers cette rubrique"></a></h2>
+<p>Une fois connecté sur github, vous pouvez créer un nouveau dépôt en cliquant sur le bouton <code class="docutils literal notranslate"><span class="pre">New</span></code> en haut à droite ou en cliquant sur le lien: <a class="reference external" href="https://github.com/new">github new repository</a>.</p>
+<p>Remplissez les informations demandées:
+et appelez votre dépôt <code class="docutils literal notranslate"><span class="pre">info_indus_tutorial</span></code>.</p>
+<section id="creer-une-cle-ssh-et-l-ajouter-a-github">
+<h3>Créer une clé ssh et l’ajouter à github<a class="headerlink" href="#creer-une-cle-ssh-et-l-ajouter-a-github" title="Lien vers cette rubrique"></a></h3>
+<p>Pour pouvoir pousser votre projet sur github, il est recommandé d’utiliser une clé ssh. Pour créer une clé ssh, ouvrez un terminal et tapez la commande suivante:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;your_email@example.com&quot;</span><span class="w"> </span>-f<span class="w"> </span>~/.ssh/id_ed25519_info_indus_tutorial
+</pre></div>
+</div>
+<p>Remplacez <code class="docutils literal notranslate"><span class="pre">your_email&#64;example.com</span></code> par votre email.</p>
+<p>Maintenant vous allez ajouter la clé ssh à votre compte github. Pour cela, copiez le contenu de la clé publique dans le presse-papier:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>~/.ssh/id_ed25519_info_indus_tutorial.pub
+</pre></div>
+</div>
+<p>Allez sur la page de votre compte github et cliquez sur votre photo de profil en haut à droite, puis cliquez sur <code class="docutils literal notranslate"><span class="pre">Settings</span></code>. Dans la colonne de gauche, cliquez sur <code class="docutils literal notranslate"><span class="pre">SSH</span> <span class="pre">and</span> <span class="pre">GPG</span> <span class="pre">keys</span></code> et enfin sur le bouton <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">SSH</span> <span class="pre">key</span></code>. Collez le contenu de la clé publique dans le champ <code class="docutils literal notranslate"><span class="pre">Key</span></code> et cliquez sur le bouton <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">SSH</span> <span class="pre">key</span></code>.</p>
+<p>Vous pouvez maintenant ajouter votre clé à l’agent ssh, cela vous évitera de taper votre mot de passe à chaque fois que vous poussez sur github:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>ssh-agent<span class="w"> </span>-s<span class="k">)</span><span class="s2">&quot;</span>
+ssh-add<span class="w"> </span>~/.ssh/id_ed25519_info_indus_tutorial
+</pre></div>
+</div>
+</section>
+</section>
+<section id="poussez-le-projet-sur-github">
+<h2>Poussez le projet sur github<a class="headerlink" href="#poussez-le-projet-sur-github" title="Lien vers cette rubrique"></a></h2>
+<p>Pour pousser le projet sur github, il faut ajouter le dépôt distant à votre dépôt local et pousser les modifications.</p>
+<p>Pour trouver l’adresse du dépôt distant à utiliser pour pousser votre projet, allez sur la page de votre dépôt github et copiez l’adresse du dépôt.</p>
+<figure class="align-center" id="get-git-remote-project-address">
+<a class="reference internal image-reference" href="../_images/get_git_remote_project_address_01.png"><img alt="../_images/get_git_remote_project_address_01.png" src="../_images/get_git_remote_project_address_01.png" style="width: 30%;" />
+</a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/get_git_remote_project_address_02.png"><img alt="../_images/get_git_remote_project_address_02.png" src="../_images/get_git_remote_project_address_02.png" style="width: 30%;" />
+</a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/get_git_remote_project_address_03.png"><img alt="../_images/get_git_remote_project_address_03.png" src="../_images/get_git_remote_project_address_03.png" style="width: 30%;" />
+</a>
+</figure>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>MY_GIT_REMOTE_ADDRESS
+</pre></div>
+</div>
+<p>Remplacez <code class="docutils literal notranslate"><span class="pre">MY_GIT_REMOTE_ADDRESS</span></code> par l’adresse du dépôt distant que vous venez de copier.</p>
+<p>Effectuez les commandes suivantes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>branch<span class="w"> </span>-a
+git<span class="w"> </span>branch<span class="w"> </span>-M<span class="w"> </span>rolling
+git<span class="w"> </span>branch<span class="w"> </span>-a
+</pre></div>
+</div>
+<p>The branch commands were to rename the main branch as rolling in accordance with the ROS2 policy.</p>
+<p>Now the actual command to push code to github:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>git push -u origin rolling</p>
+</div></blockquote>
+<p>Only the first time you push a branch to a remote repository, you need to use the <code class="docutils literal notranslate"><span class="pre">-u</span> <span class="pre">remote_reopsitory</span> <span class="pre">local</span> <span class="pre">branch</span></code> option. This option sets the upstream branch for the branch you are pushing. After that, you can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> without the <code class="docutils literal notranslate"><span class="pre">-u</span></code> option.</p>
+<p>Now, you should see the files on github.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="p01s04_create_doc.html" class="btn btn-neutral float-left" title="Création d’une première documentation sphinx" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Manuel YGUEL.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
