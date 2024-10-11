@@ -14,7 +14,7 @@ Créer un répertoire pour la documentation:
 
 .. code-block:: bash
 
-   mkdir doc
+   mkdir -p doc/sphinx
 
 Créer un fichier requirments.txt pour les dépendances de la documentation:
 
