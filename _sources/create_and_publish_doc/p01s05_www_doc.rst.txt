@@ -65,15 +65,15 @@ Pour trouver l'adresse du dépôt distant à utiliser pour pousser votre projet,
 .. _get_git_remote_project_address:
 .. figure:: resources/img/get_git_remote_project_address_01.png
    :align: center
-   :width: 30%
+   :width: 80%
 
 .. figure:: resources/img/get_git_remote_project_address_02.png
    :align: center
-   :width: 30%
+   :width: 80%
 
 .. figure:: resources/img/get_git_remote_project_address_03.png
    :align: center
-   :width: 30%
+   :width: 80%
 
 .. code-block:: bash
 
@@ -99,3 +99,91 @@ Now the actual command to push code to github:
 Only the first time you push a branch to a remote repository, you need to use the ``-u remote_reopsitory local branch`` option. This option sets the upstream branch for the branch you are pushing. After that, you can use ``git push`` without the ``-u`` option.
 
 Now, you should see the files on github.
+
+Créer le workflow git et voir la documentation apparaître sur le web en temps réel
+===================================================================================
+
+
+
+Regarder les branches existantes:
+.. code-block:: bash
+
+   git branch -a
+
+Créer la branche ``gh-pages`` vide:
+.. code-block:: bash
+
+   git switch --orphan gh-pages
+
+.. code-block:: bash
+
+   git branch -a
+
+Créer un fichier sur cette branche nommée ``.gitkeep`` cela permet de garder le répertoire vide et de pouvoir pousser la branche sur github:
+
+.. code-block:: bash
+
+   touch .gitkeep
+   git add .gitkeep
+   git commit -m "First commit of the gh-pages branch"
+   git push -u origin gh-pages
+   git checkout rolling
+
+Nous allons créer un fichier spécial qui va dire à github de créer et de publier la documentation à chaque fois qu'un changement est fait sur la branche rolling
+
+Créer le fichier ``.github/workflows/documentation.yml`` à la racine du projet git:
+
+.. code-block:: bash
+
+   mkdir -p .github/workflows
+   touch .github/workflows/documentation.yml
+
+Ajouter le contenu suivant dans le fichier ``.github/workflows/documentation.yml``:
+
+.. literalinclude:: ../../../../.github/workflows/documentation.yml
+   :language: yaml
+   :caption: Fichier de CI (action de workflow github) documentation.yml
+   :linenos:
+
+Il faut maintenant faire quelques modifications dans les settings du projet sur github
+Il faut:
+
+#. aller dans les settings du projet
+#. aller dans la section ``Actions``
+#. aller dans la sous-section ``General``
+#. cocher les 3 cases :
+
+   #. ``Allow all actions and reusable worflows`` (normalement ok par défaut)
+   #. Dans la section ``Workflow permissions`` cocher 
+
+     #. ``Read and write permissions``
+     #. ``Allow GitHub Actions to create and approve pull requests``
+   
+.. _setup_git_actions:
+.. figure:: resources/img/setup_git_actions_01.png
+   :align: center
+   :width: 80%
+
+.. figure:: resources/img/setup_git_actions_02.png
+   :align: center
+   :width: 80%
+
+.. figure:: resources/img/setup_git_actions_03.png
+   :align: center
+   :width: 80%
+
+.. figure:: resources/img/setup_git_actions_04.png
+   :align: center
+   :width: 80%
+
+Maintenant vous pouvez ajouter le fichier de workflow à git et pusher:
+
+.. code-block:: bash
+
+   git add .github/workflows/documentation.yml
+   git commit -m "Add github action to build and publish the documentation"
+   git push
+
+Maintenant, vous pouvez voir la documentation apparaître sur le web en temps réel en allant sur la page de votre dépôt github et en cliquant sur le lien ``Actions``.
+
+Vous avez peut-être besoin de faire un nouveau commit pour que le workflow se déclenche.
