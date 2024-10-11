@@ -7,8 +7,9 @@ Installer sphinx
 =======================
 
 .. code-block:: bash
-
-   sudo apt-get install python3-sphinx
+   
+   sudo apt-get update
+   sudo apt-get install -f python3-sphinx
 
 Créer un répertoire pour la documentation:
 
