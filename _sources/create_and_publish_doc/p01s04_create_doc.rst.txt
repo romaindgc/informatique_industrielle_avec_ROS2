@@ -71,7 +71,12 @@ Modifier le fichier ``conf.py``:
 
 Ajouter les fichiers créés par sphinx-quickstart:
 
-Ajouter le fichier ``custom.css``
+Ajouter le fichier ``custom.css`` dans le répertoire ``_static/css``:
+
+.. code-block:: bash
+
+   mkdir -p ~/info_indus/info_indus_tutorial/doc/sphinx/source/_static/css
+   touch ~/info_indus/info_indus_tutorial/doc/sphinx/source/_static/css/custom.css
 
 .. literalinclude:: ../_static/css/custom.css
    :language: css
