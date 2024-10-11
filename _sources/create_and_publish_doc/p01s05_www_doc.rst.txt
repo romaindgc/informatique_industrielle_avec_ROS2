@@ -144,6 +144,10 @@ Ajouter le contenu suivant dans le fichier ``.github/workflows/documentation.yml
    :language: yaml
    :caption: Fichier de CI (action de workflow github) documentation.yml
    :linenos:
+   :emphasize-lines:37
+
+Modifiez la ligne 37 du fichier de workflow pour télécharger votre projet. Remplacez ``https://github.com/yguel/informatique_industrielle_avec_ROS2.git`` par l'adresse de votre dépôt github.
+
 
 Il faut maintenant faire quelques modifications dans les settings du projet sur github
 Il faut:
