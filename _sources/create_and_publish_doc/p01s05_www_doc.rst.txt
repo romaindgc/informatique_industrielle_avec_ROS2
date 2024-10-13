@@ -147,9 +147,11 @@ Ajouter le contenu suivant dans le fichier ``.github/workflows/documentation.yml
    :language: yaml
    :caption: Fichier de CI (action de workflow github) documentation.yml
    :linenos:
-   :emphasize-lines: 37
+   :emphasize-lines: 40 
 
-Modifiez la ligne 37 du fichier de workflow pour télécharger votre projet. Remplacez ``https://github.com/yguel/informatique_industrielle_avec_ROS2.git`` par l'adresse de votre dépôt github.
+Modifiez la ligne surlignée du fichier de workflow commençant par ``git clone ...``, pour que dans le workflow ce soit bien votre projet qui soit téléchargé. Remplacez ``https://github.com/yguel/informatique_industrielle_avec_ROS2.git`` par l'adresse de votre dépôt github (MY_GIT_REMOTE_ADDRESS que vous pouvez récupérer en suivant la :ref:`procédure ci-dessus <get_git_remote_project_address>`.
+
+.. note:: Il y a une autre manière de récupérer l'adresse du dépôt gihub utilisable pour les opérations de clone, pull, push, etc. C'est en utilisant la commande suivante: ``git remote get-url origin`` . D'un point de vue mémo-techique, j'utilise une commande plus simple: ``git remote -v`` qui me donne l'adresse des dépôts distants et leur nom (``origin`` est celui qui nous intéresse ici). Cette commande est plus simple à retenir pour 2 raisons en plus d'être plus courte: 1) ``remote`` design le dépôt distant, 2) ``-v`` pour verbose, c'est-à-dire afficher les informations de manière détaillée, c'est l'option courante dans le monde des commandes linux pour obtenir plus d'informations.
 
 
 Il faut maintenant faire quelques modifications dans les settings du projet sur github
@@ -194,3 +196,7 @@ Maintenant vous pouvez ajouter le fichier de workflow à git et pusher:
 Maintenant, vous pouvez voir la documentation apparaître sur le web en temps réel en allant sur la page de votre dépôt github et en cliquant sur le lien ``Actions``.
 
 Vous avez peut-être besoin de faire un nouveau commit pour que le workflow se déclenche.
+
+Petit exercice: modifiez le fichier ``doc/sphinx/source/index.rst`` et ajoutez une ligne de texte. Poussez les modifications sur github à l'aide des commandes git : ``add, commit puis push`` et regardez la documentation se mettre à jour en temps réel.
+
+Allez sur l'onglet ``Actions`` de votre dépôt github pour voir le workflow se déclencher et construire la documentation, vous pouvez suivre en temps réel ce qui se passe et notamment voir les logs ou les erreurs s'il y en a.
