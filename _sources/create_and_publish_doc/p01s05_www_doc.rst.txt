@@ -49,7 +49,7 @@ Vous pouvez maintenant ajouter votre clé à l'agent ssh, cela vous évitera de 
 
 .. code-block:: bash
 
-   eval "$(ssh-agent -s)"
+   ssh-agent /bin/bash
    ssh-add ~/.ssh/id_ed25519_info_indus_tutorial
 
 
