@@ -11,6 +11,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b2acc204" />
 
   
@@ -22,6 +23,7 @@
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=30646c52"></script>
       <script src="../_static/translations.js?v=e6b791cb"></script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
@@ -63,7 +65,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#creer-une-cle-ssh-et-l-ajouter-a-github">Créer une clé ssh et l’ajouter à github</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#poussez-le-projet-sur-github">Poussez le projet sur github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#poussez-le-projet-sur-github">Poussez le projet sur github</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#changement-de-nom-de-la-branche-principale">Changement de nom de la branche principale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pousser-le-code-sur-github">Pousser le code sur github</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#creer-le-workflow-git-et-voir-la-documentation-apparaitre-sur-le-web-en-temps-reel">Créer le workflow git et voir la documentation apparaître sur le web en temps réel</a></li>
 </ul>
 </li>
@@ -134,7 +140,14 @@ ssh-add<span class="w"> </span>~/.ssh/id_ed25519_info_indus_tutorial
 <h2>Poussez le projet sur github<a class="headerlink" href="#poussez-le-projet-sur-github" title="Lien vers cette rubrique"></a></h2>
 <p>Pour pousser le projet sur github, il faut ajouter le dépôt distant à votre dépôt local et pousser les modifications.</p>
 <p>Pour trouver l’adresse du dépôt distant à utiliser pour pousser votre projet, allez sur la page de votre dépôt github et copiez l’adresse du dépôt.</p>
-<figure class="align-center" id="get-git-remote-project-address">
+<p>Vous avez besoin de l’adresse ssh du dépôt (voir la procédure pas à pas). La procédure animée montre quant-à-elle la procédure pour obtenir l’adresse https du dépôt. Elles sont identiques jusqu’au moment où vous choisissez le type d’adresse du dépôt à copier.</p>
+<p>L’adresse ssh vous permet de pousser sans taper de mot de passe tandis qu’avec l’adresse https vous serez forcés d’entrer votre mot de passe à chaque fois que vous poussez. Par contre, comme le dépôt est public, vous pouvez utiliser l’adresse https sans aucune configuration pour copier le dépôt (le cloner) nous verrons plus loin où cela peut être utile.</p>
+<div class="sphinx-tabs docutils container" id="get-git-remote-project-address">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Procédure animée (https)</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Procédure pas à pas (ssh)</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><figure class="align-center">
+<a class="reference internal image-reference" href="../_images/access_https_git_clone_address.gif"><img alt="../_images/access_https_git_clone_address.gif" src="../_images/access_https_git_clone_address.gif" style="width: 80%;" />
+</a>
+</figure>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><figure class="align-center">
 <a class="reference internal image-reference" href="../_images/get_git_remote_project_address_01.png"><img alt="../_images/get_git_remote_project_address_01.png" src="../_images/get_git_remote_project_address_01.png" style="width: 80%;" />
 </a>
 </figure>
@@ -146,23 +159,35 @@ ssh-add<span class="w"> </span>~/.ssh/id_ed25519_info_indus_tutorial
 <a class="reference internal image-reference" href="../_images/get_git_remote_project_address_03.png"><img alt="../_images/get_git_remote_project_address_03.png" src="../_images/get_git_remote_project_address_03.png" style="width: 80%;" />
 </a>
 </figure>
+</div></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>MY_GIT_REMOTE_ADDRESS
 </pre></div>
 </div>
 <p>Remplacez <code class="docutils literal notranslate"><span class="pre">MY_GIT_REMOTE_ADDRESS</span></code> par l’adresse du dépôt distant que vous venez de copier.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il y a une autre manière de récupérer l’adresse du dépôt gihub utilisable pour les opérations de clone, pull, push, etc. C’est en utilisant la commande suivante: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">get-url</span> <span class="pre">origin</span></code> . D’un point de vue mémo-techique, j’utilise une commande plus simple: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code> qui me donne l’adresse des dépôts distants et leur nom (<code class="docutils literal notranslate"><span class="pre">origin</span></code> est celui qui nous intéresse ici). Cette commande est plus simple à retenir pour 2 raisons en plus d’être plus courte: 1) <code class="docutils literal notranslate"><span class="pre">remote</span></code> design le dépôt distant, 2) <code class="docutils literal notranslate"><span class="pre">-v</span></code> pour verbose, c’est-à-dire afficher les informations de manière détaillée, c’est l’option courante dans le monde des commandes linux pour obtenir plus d’informations.</p>
+</div>
+<section id="changement-de-nom-de-la-branche-principale">
+<h3>Changement de nom de la branche principale<a class="headerlink" href="#changement-de-nom-de-la-branche-principale" title="Lien vers cette rubrique"></a></h3>
 <p>Effectuez les commandes suivantes:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>branch<span class="w"> </span>-a
 git<span class="w"> </span>branch<span class="w"> </span>-M<span class="w"> </span>rolling
 git<span class="w"> </span>branch<span class="w"> </span>-a
 </pre></div>
 </div>
-<p>The branch commands were to rename the main branch as rolling in accordance with the ROS2 policy.</p>
-<p>Now the actual command to push code to github:</p>
+<p>The branch commands permet de renommer la branche principale (appelée main ou master) en <code class="docutils literal notranslate"><span class="pre">rolling</span></code> en accord avec la politique de nommage de ROS2.</p>
+</section>
+<section id="pousser-le-code-sur-github">
+<h3>Pousser le code sur github<a class="headerlink" href="#pousser-le-code-sur-github" title="Lien vers cette rubrique"></a></h3>
+<p>Voyons maintenant la commande pour pousser le code sur github:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>rolling
 </pre></div>
 </div>
-<p>Only the first time you push a branch to a remote repository, you need to use the <code class="docutils literal notranslate"><span class="pre">-u</span> <span class="pre">remote_reopsitory</span> <span class="pre">local</span> <span class="pre">branch</span></code> option. This option sets the upstream branch for the branch you are pushing. After that, you can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> without the <code class="docutils literal notranslate"><span class="pre">-u</span></code> option.</p>
-<p>Now, you should see the files on github.</p>
+<p>C’est seulement la première fois que vous poussez une branche sur un dépôt distant que vous devez utiliser l’option <code class="docutils literal notranslate"><span class="pre">-u</span> <span class="pre">remote_reopsitory</span> <span class="pre">local</span> <span class="pre">branch</span></code>. Cette option définit la branche en amont pour la branche que vous poussez. Après cela, vous pouvez utiliser <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> sans l’option <code class="docutils literal notranslate"><span class="pre">-u</span></code>.</p>
+<p>Maintenant vous pouvez aller sur la page de votre dépôt github et rafraîchir la page.
+Vous devriez voir les fichiers de votre projet s’afficher sur github.</p>
+</section>
 </section>
 <section id="creer-le-workflow-git-et-voir-la-documentation-apparaitre-sur-le-web-en-temps-reel">
 <h2>Créer le workflow git et voir la documentation apparaître sur le web en temps réel<a class="headerlink" href="#creer-le-workflow-git-et-voir-la-documentation-apparaitre-sur-le-web-en-temps-reel" title="Lien vers cette rubrique"></a></h2>
@@ -193,7 +218,7 @@ touch<span class="w"> </span>.github/workflows/documentation.yml
 </div>
 <p>Ajouter le contenu suivant dans le fichier <code class="docutils literal notranslate"><span class="pre">.github/workflows/documentation.yml</span></code>:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Fichier de CI (action de workflow github) documentation.yml</span><a class="headerlink" href="#id1" title="Lien vers ce code"></a></div>
+<span id="github-workflow-doc"></span><div class="code-block-caption"><span class="caption-text">Fichier de CI (action de workflow github) documentation.yml</span><a class="headerlink" href="#id1" title="Lien vers ce code"></a></div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Documentation</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="c1"># Controls when the workflow will run</span>
@@ -251,11 +276,8 @@ touch<span class="w"> </span>.github/workflows/documentation.yml
 </pre></div>
 </div>
 </div>
-<p>Modifiez la ligne surlignée du fichier de workflow commençant par <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">...</span></code>, pour que dans le workflow ce soit bien votre projet qui soit téléchargé. Remplacez <code class="docutils literal notranslate"><span class="pre">https://github.com/yguel/informatique_industrielle_avec_ROS2.git</span></code> par l’adresse de votre dépôt github (MY_GIT_REMOTE_ADDRESS que vous pouvez récupérer en suivant la <a class="reference internal" href="#get-git-remote-project-address"><span class="std std-ref">procédure ci-dessus</span></a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Il y a une autre manière de récupérer l’adresse du dépôt gihub utilisable pour les opérations de clone, pull, push, etc. C’est en utilisant la commande suivante: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">get-url</span> <span class="pre">origin</span></code> . D’un point de vue mémo-techique, j’utilise une commande plus simple: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code> qui me donne l’adresse des dépôts distants et leur nom (<code class="docutils literal notranslate"><span class="pre">origin</span></code> est celui qui nous intéresse ici). Cette commande est plus simple à retenir pour 2 raisons en plus d’être plus courte: 1) <code class="docutils literal notranslate"><span class="pre">remote</span></code> design le dépôt distant, 2) <code class="docutils literal notranslate"><span class="pre">-v</span></code> pour verbose, c’est-à-dire afficher les informations de manière détaillée, c’est l’option courante dans le monde des commandes linux pour obtenir plus d’informations.</p>
-</div>
+<p>Modifiez la ligne surlignée du fichier de workflow commençant par <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">...</span></code>, pour que dans le workflow ce soit bien votre projet qui soit téléchargé. Remplacez <code class="docutils literal notranslate"><span class="pre">https://github.com/yguel/informatique_industrielle_avec_ROS2.git</span></code> par l’adresse <code class="docutils literal notranslate"><span class="pre">HTTPS</span></code> de votre dépôt github (MY_GIT_REMOTE_ADDRESS que vous pouvez récupérer en suivant la <a class="reference internal" href="#get-git-remote-project-address"><span class="std std-ref">procédure ci-dessus</span></a> (procédure pas-à-pas). Nous utilisons ici, l’adresse <code class="docutils literal notranslate"><span class="pre">HTTPS</span></code> pour que le workflow n’est pas besoin de code d’accès pour cloner le dépôt. Comme le dépôt est publique c’est la méthode d’accès la plus simple pour le workflow.</p>
+<p>Par contre pour modifier le dépôt: action <code class="docutils literal notranslate"><span class="pre">push</span></code>, il faut forcément des autorisations car le dépôt n’est pas en écriture pour tout le monde. C’est pour cela que dans le ::ref:` workflow&lt;github_workflow_doc&gt;`, l’action <code class="docutils literal notranslate"><span class="pre">Push</span> <span class="pre">changes</span></code> lignes 49-54, a un champ particulier <code class="docutils literal notranslate"><span class="pre">github_token</span></code> qui permet d’authentifier le workflow pour qu’il puisse pousser les modifications sur le dépôt. Le mot de passe est généré automatiquement par github, et les actions github auront le droit de pousser sur le dépôt une fois que vous aurez fait <a class="reference internal" href="#setup-git-actions"><span class="std std-ref">les modifications dans les settings du projet ci-après</span></a>.</p>
 <p>Il faut maintenant faire quelques modifications dans les settings du projet sur github
 Il faut:</p>
 <ol class="arabic">

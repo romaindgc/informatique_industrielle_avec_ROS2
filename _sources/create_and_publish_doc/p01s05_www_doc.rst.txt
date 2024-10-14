@@ -62,18 +62,32 @@ Pour pousser le projet sur github, il faut ajouter le dépôt distant à votre d
 
 Pour trouver l'adresse du dépôt distant à utiliser pour pousser votre projet, allez sur la page de votre dépôt github et copiez l'adresse du dépôt.
 
+Vous avez besoin de l'adresse ssh du dépôt (voir la procédure pas à pas). La procédure animée montre quant-à-elle la procédure pour obtenir l'adresse https du dépôt. Elles sont identiques jusqu'au moment où vous choisissez le type d'adresse du dépôt à copier.
+
+L'adresse ssh vous permet de pousser sans taper de mot de passe tandis qu'avec l'adresse https vous serez forcés d'entrer votre mot de passe à chaque fois que vous poussez. Par contre, comme le dépôt est public, vous pouvez utiliser l'adresse https sans aucune configuration pour copier le dépôt (le cloner) nous verrons plus loin où cela peut être utile.
+
 .. _get_git_remote_project_address:
-.. figure:: resources/img/get_git_remote_project_address_01.png
-   :align: center
-   :width: 80%
+.. tabs::
 
-.. figure:: resources/img/get_git_remote_project_address_02.png
-   :align: center
-   :width: 80%
+   .. tab:: Procédure animée (https)
 
-.. figure:: resources/img/get_git_remote_project_address_03.png
-   :align: center
-   :width: 80%
+      .. figure:: resources/img/access_https_git_clone_address.gif
+         :align: center
+         :width: 80%
+
+   .. tab:: Procédure pas à pas (ssh)
+
+      .. figure:: resources/img/get_git_remote_project_address_01.png
+         :align: center
+         :width: 80%
+
+      .. figure:: resources/img/get_git_remote_project_address_02.png
+         :align: center
+         :width: 80%
+
+      .. figure:: resources/img/get_git_remote_project_address_03.png
+         :align: center
+         :width: 80%
 
 .. code-block:: bash
 
@@ -81,6 +95,10 @@ Pour trouver l'adresse du dépôt distant à utiliser pour pousser votre projet,
 
 Remplacez ``MY_GIT_REMOTE_ADDRESS`` par l'adresse du dépôt distant que vous venez de copier.
 
+.. note:: Il y a une autre manière de récupérer l'adresse du dépôt gihub utilisable pour les opérations de clone, pull, push, etc. C'est en utilisant la commande suivante: ``git remote get-url origin`` . D'un point de vue mémo-techique, j'utilise une commande plus simple: ``git remote -v`` qui me donne l'adresse des dépôts distants et leur nom (``origin`` est celui qui nous intéresse ici). Cette commande est plus simple à retenir pour 2 raisons en plus d'être plus courte: 1) ``remote`` design le dépôt distant, 2) ``-v`` pour verbose, c'est-à-dire afficher les informations de manière détaillée, c'est l'option courante dans le monde des commandes linux pour obtenir plus d'informations.
+
+Changement de nom de la branche principale
+------------------------------------------
 Effectuez les commandes suivantes:
 
 .. code-block:: bash
@@ -89,17 +107,21 @@ Effectuez les commandes suivantes:
    git branch -M rolling
    git branch -a
 
-The branch commands were to rename the main branch as rolling in accordance with the ROS2 policy.
+The branch commands permet de renommer la branche principale (appelée main ou master) en ``rolling`` en accord avec la politique de nommage de ROS2.
 
-Now the actual command to push code to github:
+Pousser le code sur github
+--------------------------
+
+Voyons maintenant la commande pour pousser le code sur github:
 
 .. code-block:: bash
 
    git push -u origin rolling
 
-Only the first time you push a branch to a remote repository, you need to use the ``-u remote_reopsitory local branch`` option. This option sets the upstream branch for the branch you are pushing. After that, you can use ``git push`` without the ``-u`` option.
+C'est seulement la première fois que vous poussez une branche sur un dépôt distant que vous devez utiliser l'option ``-u remote_reopsitory local branch``. Cette option définit la branche en amont pour la branche que vous poussez. Après cela, vous pouvez utiliser ``git push`` sans l'option ``-u``.
 
-Now, you should see the files on github.
+Maintenant vous pouvez aller sur la page de votre dépôt github et rafraîchir la page.
+Vous devriez voir les fichiers de votre projet s'afficher sur github.
 
 Créer le workflow git et voir la documentation apparaître sur le web en temps réel
 ===================================================================================
@@ -143,15 +165,18 @@ Créer le fichier ``.github/workflows/documentation.yml`` à la racine du projet
 
 Ajouter le contenu suivant dans le fichier ``.github/workflows/documentation.yml``:
 
+.. _github_workflow_doc:
 .. literalinclude:: ../../../../.github/workflows/documentation.yml
    :language: yaml
    :caption: Fichier de CI (action de workflow github) documentation.yml
    :linenos:
    :emphasize-lines: 40 
 
-Modifiez la ligne surlignée du fichier de workflow commençant par ``git clone ...``, pour que dans le workflow ce soit bien votre projet qui soit téléchargé. Remplacez ``https://github.com/yguel/informatique_industrielle_avec_ROS2.git`` par l'adresse de votre dépôt github (MY_GIT_REMOTE_ADDRESS que vous pouvez récupérer en suivant la :ref:`procédure ci-dessus <get_git_remote_project_address>`.
+Modifiez la ligne surlignée du fichier de workflow commençant par ``git clone ...``, pour que dans le workflow ce soit bien votre projet qui soit téléchargé. Remplacez ``https://github.com/yguel/informatique_industrielle_avec_ROS2.git`` par l'adresse ``HTTPS`` de votre dépôt github (MY_GIT_REMOTE_ADDRESS que vous pouvez récupérer en suivant la :ref:`procédure ci-dessus <get_git_remote_project_address>` (procédure pas-à-pas). Nous utilisons ici, l'adresse ``HTTPS`` pour que le workflow n'est pas besoin de code d'accès pour cloner le dépôt. Comme le dépôt est publique c'est la méthode d'accès la plus simple pour le workflow.
 
-.. note:: Il y a une autre manière de récupérer l'adresse du dépôt gihub utilisable pour les opérations de clone, pull, push, etc. C'est en utilisant la commande suivante: ``git remote get-url origin`` . D'un point de vue mémo-techique, j'utilise une commande plus simple: ``git remote -v`` qui me donne l'adresse des dépôts distants et leur nom (``origin`` est celui qui nous intéresse ici). Cette commande est plus simple à retenir pour 2 raisons en plus d'être plus courte: 1) ``remote`` design le dépôt distant, 2) ``-v`` pour verbose, c'est-à-dire afficher les informations de manière détaillée, c'est l'option courante dans le monde des commandes linux pour obtenir plus d'informations.
+Par contre pour modifier le dépôt: action ``push``, il faut forcément des autorisations car le dépôt n'est pas en écriture pour tout le monde. C'est pour cela que dans le ::ref:` workflow<github_workflow_doc>`, l'action ``Push changes`` lignes 49-54, a un champ particulier ``github_token`` qui permet d'authentifier le workflow pour qu'il puisse pousser les modifications sur le dépôt. Le mot de passe est généré automatiquement par github, et les actions github auront le droit de pousser sur le dépôt une fois que vous aurez fait :ref:`les modifications dans les settings du projet ci-après<setup_git_actions>`.
+
+
 
 
 Il faut maintenant faire quelques modifications dans les settings du projet sur github
