@@ -225,3 +225,8 @@ Vous avez peut-être besoin de faire un nouveau commit pour que le workflow se d
 Petit exercice: modifiez le fichier ``doc/sphinx/source/index.rst`` et ajoutez une ligne de texte. Poussez les modifications sur github à l'aide des commandes git : ``add, commit puis push`` et regardez la documentation se mettre à jour en temps réel.
 
 Allez sur l'onglet ``Actions`` de votre dépôt github pour voir le workflow se déclencher et construire la documentation, vous pouvez suivre en temps réel ce qui se passe et notamment voir les logs ou les erreurs s'il y en a.
+
+.. _workflow_in_action:
+.. figure:: resources/img/workflow_in_action.gif
+   :align: center
+   :width: 80%
