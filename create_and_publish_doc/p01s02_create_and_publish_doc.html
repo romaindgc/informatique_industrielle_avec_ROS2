@@ -102,7 +102,7 @@
              
   <section id="creation-du-projet">
 <h1>Création du projet<a class="headerlink" href="#creation-du-projet" title="Lien vers cette rubrique"></a></h1>
-<p>Ouvrir un terminal sous ubuntu en tapant <cite>Ctrl+Alt+T</cite> ou en recherchant <cite>terminal</cite> dans le menu de recherche ou en cliquant sur l’icone du terminal dans la barre de tâche.</p>
+<p>Ouvrir un terminal sous ubuntu en tapant <code class="docutils literal notranslate"><span class="pre">Ctrl+Alt+t</span></code> ou en recherchant <code class="docutils literal notranslate"><span class="pre">terminal</span></code> dans le menu de recherche ou en cliquant sur l’icone du terminal dans la barre de tâche.</p>
 <figure class="align-center" id="id1">
 <span id="gnome-terminal-icon"></span><a class="reference internal image-reference" href="../_images/gnome_terminal_icon.png"><img alt="../_images/gnome_terminal_icon.png" src="../_images/gnome_terminal_icon.png" style="width: 30%;" />
 </a>
@@ -114,16 +114,20 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/info_indus/info_indus_tutorial
 </pre></div>
 </div>
-<p>Nous allons donc appeler ce projet <cite>info_indus_tutorial</cite>.
+<p>Nous allons donc appeler ce projet <code class="docutils literal notranslate"><span class="pre">info_indus_tutorial</span></code>.
 Vous pouvez changer ce nom si vous le souhaitez, mais il faudra alors adapter tout le tutorial en conséquence.</p>
 <p>À partir de maintenant et sans mention du contraire nous considérerons que vous êtes dans le répertoire du projet:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/info_indus/info_indus_tutorial
 </pre></div>
 </div>
-<p>Créer un répertoire “”.vscode”” dans le répertoire du projet et créer 2 fichiers vides dedans: “”settings.json”” et “”keybindings.json””:</p>
+<p>Créer un répertoire “”.vscode”” dans le répertoire du projet et créer 1 fichier vide dedans: <code class="docutils literal notranslate"><span class="pre">settings.json</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>.vscode
 touch<span class="w"> </span>.vscode/settings.json
-touch<span class="w"> </span>.vscode/keybindings.json
+</pre></div>
+</div>
+<p>Aller dans le répertoire de configuration des paramètres globaux de vscode pour l’utilisateur courant et créer un fichier <code class="docutils literal notranslate"><span class="pre">keybindings.json</span></code> vide:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/.config/Code/User
+touch<span class="w"> </span>keybindings.json
 </pre></div>
 </div>
 <section id="premiers-pas-avec-l-editeur-ide-de-code-vscode">
@@ -133,7 +137,7 @@ touch<span class="w"> </span>.vscode/keybindings.json
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>code<span class="w"> </span>.
 </pre></div>
 </div>
-<p>Maintenant vous allez remplir le fichier “”settings.json”” avec le contenu suivant:</p>
+<p>Maintenant vous allez remplir le fichier <code class="docutils literal notranslate"><span class="pre">settings.json</span></code> avec le contenu suivant:</p>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">Fichier settings.json</span><a class="headerlink" href="#id2" title="Lien vers ce code"></a></div>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="p">{</span>
@@ -155,21 +159,48 @@ touch<span class="w"> </span>.vscode/keybindings.json
 </pre></div>
 </div>
 </div>
-<p>Et le fichier “”keybindings.json”” avec le contenu suivant:</p>
+<p>Les options de ce fichier permettent:</p>
+<ul class="simple">
+<li><p>de formatter les fichier à chaque sauvegarde avec les outils de formattage automatique mais aussi lors des copiés-collés (lignes 2-4). Cela est particulièrement utile pour les languages où l’indentation a un sens pour le compilateur comme le python, restructuredText, yaml, etc.</p></li>
+<li><p>de faire en sorte que le code soit toujours entièrement visible même quand la fenêtre est trop petite en «wrapant» les lignes dans l’éditeur mais pas dans le fichier (lignes 5). Cela se voit car le numéro de ligne ne change pas à gauche.</p></li>
+<li><p>de faire en sorte que l’indentation soit toujours faite avec des espaces en restructuredText (.rst, le format des fichiers de documentation sphinx de ce cours) (lignes 13-15).</p></li>
+<li><p>de ne pas réarranger l’ordre des include en C/C++ (ligne 6), ce qui peut conclure à des erreurs pour certains setups de compilation, notamment dans la programmation embarquée.</p></li>
+<li><p>d’ignorer l’erreur E402 en python pour pouvoir importer des modules n’importe où dans le code (lignes 7-10)</p></li>
+<li><p>d’augmenter la taille de l’historique du terminal (ligne 11)</p></li>
+<li><p>de laisser les fichiers consultés ouverts dans l’éditeur quand ils ont été ouverts par des actions de preview (ligne 12), comme par exemple pour consulter une ligne liée à une erreur dans un log ou un processus de compilation. Cela permet d’avoir en simultané le fichier de log ou d’erreur et le fichier de code ouvert dans l’éditeur.</p></li>
+</ul>
+<p>Et le fichier <code class="docutils literal notranslate"><span class="pre">keybindings.json</span></code> avec le contenu suivant:</p>
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">Fichier keybindings.json</span><a class="headerlink" href="#id3" title="Lien vers ce code"></a></div>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="p">{</span>
-<span class="linenos">2</span><span class="w">    </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;enter&quot;</span><span class="p">,</span>
-<span class="linenos">3</span><span class="w">    </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-restructuredtext.editor.listEditing&quot;</span>
-<span class="linenos">4</span><span class="p">},</span>
-<span class="linenos">5</span><span class="p">{</span>
-<span class="linenos">6</span><span class="w">    </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ctrl+q&quot;</span><span class="p">,</span>
-<span class="linenos">7</span><span class="w">    </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-workbench.action.quit&quot;</span>
-<span class="linenos">8</span><span class="p">}</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="p">[</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 3</span><span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;enter&quot;</span><span class="p">,</span>
+<span class="linenos"> 4</span><span class="w">        </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-restructuredtext.editor.listEditing&quot;</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="p">},</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ctrl+q&quot;</span><span class="p">,</span>
+<span class="linenos"> 8</span><span class="w">        </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-workbench.action.quit&quot;</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-<p>Et vous allez recharger vscode pour prendre en compte ces changements en tapant <cite>Ctrl+Shift+P</cite> puis en tapant <cite>Developer: Reload Window</cite>.</p>
+<p>La configuration des racourcis claviers de ce clavier permet de:</p>
+<ul>
+<li><p>supprimer le racourcis <code class="docutils literal notranslate"><span class="pre">Ctrl+q</span></code> (lignes 2-5) qui est utilisé par vscode pour fermer l’éditeur. Cela permet, pour les utilisateurs de clavier francophone AZERTY, de ne pas fermer l’éditeur par erreur en voulant par exemple:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>taper <code class="docutils literal notranslate"><span class="pre">Ctrl+a</span></code> pour sélectionner tout le texte ou</p></li>
+<li><p>taper <code class="docutils literal notranslate"><span class="pre">Ctrl+z</span></code> pour annuler une action ou</p></li>
+<li><p>taper <code class="docutils literal notranslate"><span class="pre">Ctrl+s</span></code> pour sauvegarder le fichier.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>supprimer un bug lié à l’extension esbonio permettant d’afficher la documentation sphinx dans vscode (lignes 6-9).</p></li>
+</ul>
+<p>Recharger vscode pour prendre en compte ces changements en tapant <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code> puis en tapant <code class="docutils literal notranslate"><span class="pre">Developer:</span> <span class="pre">Reload</span> <span class="pre">Window</span></code>.</p>
+<p>Le fichier des racourcis claviers ne se trouve pas dans le répertoire du projet mais dans le répertoire de configuration des paramètres globaux de vscode pour l’utilisateur courant car ces paramètres sont considérés par vscode comme étant des paramètres régionaux et/ou spécifiques à l’utilisateur.
+Il est possible d’utiliser une extension qui permet de définir des profils et de les utiliser en fonction du projet ou de l’environnement de travail.</p>
 <section id="installation-des-extensions-vscode">
 <h3>Installation des extensions vscode<a class="headerlink" href="#installation-des-extensions-vscode" title="Lien vers cette rubrique"></a></h3>
 <p>Dans vscode vous allez cliquer sur l’icone</p>

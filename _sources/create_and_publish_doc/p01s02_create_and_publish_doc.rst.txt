@@ -2,7 +2,7 @@
 Création du projet
 *******************
 
-Ouvrir un terminal sous ubuntu en tapant `Ctrl+Alt+T` ou en recherchant `terminal` dans le menu de recherche ou en cliquant sur l'icone du terminal dans la barre de tâche.
+Ouvrir un terminal sous ubuntu en tapant ``Ctrl+Alt+t`` ou en recherchant ``terminal`` dans le menu de recherche ou en cliquant sur l'icone du terminal dans la barre de tâche.
 
 .. _gnome_terminal_icon:
 .. figure:: resources/img/gnome_terminal_icon.png
@@ -17,7 +17,7 @@ Dans votre home créez un répertoire pour le projet:
 
    mkdir -p ~/info_indus/info_indus_tutorial
 
-Nous allons donc appeler ce projet `info_indus_tutorial`. 
+Nous allons donc appeler ce projet ``info_indus_tutorial``. 
 Vous pouvez changer ce nom si vous le souhaitez, mais il faudra alors adapter tout le tutorial en conséquence.
 
 À partir de maintenant et sans mention du contraire nous considérerons que vous êtes dans le répertoire du projet:
@@ -26,13 +26,19 @@ Vous pouvez changer ce nom si vous le souhaitez, mais il faudra alors adapter to
 
    cd ~/info_indus/info_indus_tutorial
 
-Créer un répertoire ''.vscode'' dans le répertoire du projet et créer 2 fichiers vides dedans: ''settings.json'' et ''keybindings.json'':
+Créer un répertoire ''.vscode'' dans le répertoire du projet et créer 1 fichier vide dedans: ``settings.json``
 
 .. code-block:: bash
    
    mkdir .vscode
    touch .vscode/settings.json
-   touch .vscode/keybindings.json
+
+Aller dans le répertoire de configuration des paramètres globaux de vscode pour l'utilisateur courant et créer un fichier ``keybindings.json`` vide:
+
+.. code-block:: bash
+
+   cd ~/.config/Code/User
+   touch keybindings.json
 
 ================================================
 Premiers pas avec l'éditeur (IDE) de code vscode
@@ -46,22 +52,44 @@ Ouvrir le répertoire du projet avec vscode:
 
    code .
 
-Maintenant vous allez remplir le fichier ''settings.json'' avec le contenu suivant:
+Maintenant vous allez remplir le fichier ``settings.json`` avec le contenu suivant:
 
-.. literalinclude:: resources/code/.vscode/settings.json
+.. literalinclude:: resources/code/config.vscode/settings.json
    :language: json
    :caption: Fichier settings.json
    :linenos:
 
-Et le fichier ''keybindings.json'' avec le contenu suivant:
+Les options de ce fichier permettent:
 
-.. literalinclude:: resources/code/.vscode/keybindings.json
+- de formatter les fichier à chaque sauvegarde avec les outils de formattage automatique mais aussi lors des copiés-collés (lignes 2-4). Cela est particulièrement utile pour les languages où l'indentation a un sens pour le compilateur comme le python, restructuredText, yaml, etc.
+- de faire en sorte que le code soit toujours entièrement visible même quand la fenêtre est trop petite en «wrapant» les lignes dans l'éditeur mais pas dans le fichier (lignes 5). Cela se voit car le numéro de ligne ne change pas à gauche.
+- de faire en sorte que l'indentation soit toujours faite avec des espaces en restructuredText (.rst, le format des fichiers de documentation sphinx de ce cours) (lignes 13-15).
+- de ne pas réarranger l'ordre des include en C/C++ (ligne 6), ce qui peut conclure à des erreurs pour certains setups de compilation, notamment dans la programmation embarquée.
+- d'ignorer l'erreur E402 en python pour pouvoir importer des modules n'importe où dans le code (lignes 7-10)
+- d'augmenter la taille de l'historique du terminal (ligne 11)
+- de laisser les fichiers consultés ouverts dans l'éditeur quand ils ont été ouverts par des actions de preview (ligne 12), comme par exemple pour consulter une ligne liée à une erreur dans un log ou un processus de compilation. Cela permet d'avoir en simultané le fichier de log ou d'erreur et le fichier de code ouvert dans l'éditeur.
+
+Et le fichier ``keybindings.json`` avec le contenu suivant:
+
+.. literalinclude:: resources/code/config.vscode/keybindings.json
    :language: json
    :caption: Fichier keybindings.json
    :linenos:
 
-Et vous allez recharger vscode pour prendre en compte ces changements en tapant `Ctrl+Shift+P` puis en tapant `Developer: Reload Window`.
+La configuration des racourcis claviers de ce clavier permet de:
 
+- supprimer le racourcis ``Ctrl+q`` (lignes 2-5) qui est utilisé par vscode pour fermer l'éditeur. Cela permet, pour les utilisateurs de clavier francophone AZERTY, de ne pas fermer l'éditeur par erreur en voulant par exemple:
+
+   - taper ``Ctrl+a`` pour sélectionner tout le texte ou
+   - taper ``Ctrl+z`` pour annuler une action ou
+   - taper ``Ctrl+s`` pour sauvegarder le fichier.
+
+- supprimer un bug lié à l'extension esbonio permettant d'afficher la documentation sphinx dans vscode (lignes 6-9).
+
+Recharger vscode pour prendre en compte ces changements en tapant ``Ctrl+Shift+P`` puis en tapant ``Developer: Reload Window``.
+
+Le fichier des racourcis claviers ne se trouve pas dans le répertoire du projet mais dans le répertoire de configuration des paramètres globaux de vscode pour l'utilisateur courant car ces paramètres sont considérés par vscode comme étant des paramètres régionaux et/ou spécifiques à l'utilisateur.
+Il est possible d'utiliser une extension qui permet de définir des profils et de les utiliser en fonction du projet ou de l'environnement de travail.
 
 -----------------------------------
 Installation des extensions vscode
@@ -82,67 +110,67 @@ Et vous allez installer les extensions suivantes qui seront très utile pour le 
 ^^^^^^^^^^^^^^^^
 #. Gremlins tracker by Nicolas Hoizey
 
-   * ID: nhoizey.gremlins
-   * permet de voir tous les charactères invisibles dans le code qui peuvent nous pourrir la vie
+   - ID: nhoizey.gremlins
+   - permet de voir tous les charactères invisibles dans le code qui peuvent nous pourrir la vie
 
 git:
 ^^^^
 #. Git Graph by mhutchie
 
-   * ID: mhutchie.git-graph
+   - ID: mhutchie.git-graph
 
 python:
 ^^^^^^^
 #. Python by microsoft
 
-   * ID: ms-python.python
+   - ID: ms-python.python
 #. Python Debugger by microsoft
 
-   * ID: ms-python.debugpy
+   - ID: ms-python.debugpy
 
 Documentation:
 ^^^^^^^^^^^^^^
 #. Esbonio by Swyddfa
 
-   * ID: swyddfa.Esbonio
+   - ID: swyddfa.Esbonio
 
 
 c/c++/ embarqué:
 ^^^^^^^^^^^^^^^^
 #. C/C++ by microsoft
 
-   * ID: ms-vscode.cpptools
+   - ID: ms-vscode.cpptools
 
 #. GDB Debugger - Beyond by coolchyni
 
-   * ID: coolchyni.beyond-debug
+   - ID: coolchyni.beyond-debug
 
 #. vscode-valgrind by krosf
 
-   * ID: krosf.vscode-valgrind
+   - ID: krosf.vscode-valgrind
 
 #. CMake Tools by microsoft
 
-   * ID: ms-vscode.cmake-tools
+   - ID: ms-vscode.cmake-tools
 
 #. Debug Visualizer by Henning Dieterichs 
 
-   * ID: hediet.debug-visualizer
+   - ID: hediet.debug-visualizer
 
 #. Hex Array Formatter by AloyseTech
 
-   * ID: AloyseTech.hex-array-formatter
+   - ID: AloyseTech.hex-array-formatter
 
 
 ROS2:
 ^^^^^
 #. Uncrustify by Zachary Flower
 
-   * ID: zachflower.uncrustify
-   * allows to do good formatting for ROS2
+   - ID: zachflower.uncrustify
+   - allows to do good formatting for ROS2
 
 Assistant IA:
 ^^^^^^^^^^^^^
 #. GitHub Copilot by github
 
-   * ID: GitHub.copilot
+   - ID: GitHub.copilot

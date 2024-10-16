@@ -66,6 +66,11 @@ Vous avez besoin de l'adresse ssh du dépôt (voir la procédure pas à pas). La
 
 L'adresse ssh vous permet de pousser sans taper de mot de passe tandis qu'avec l'adresse https vous serez forcés d'entrer votre mot de passe à chaque fois que vous poussez. Par contre, comme le dépôt est public, vous pouvez utiliser l'adresse https sans aucune configuration pour copier le dépôt (le cloner) nous verrons plus loin où cela peut être utile.
 
+.. index:: 
+   git; remote
+   git; adresse du dépôt distant
+   github; remote
+   github; adresse du dépôt distant
 .. _get_git_remote_project_address:
 .. tabs::
 
