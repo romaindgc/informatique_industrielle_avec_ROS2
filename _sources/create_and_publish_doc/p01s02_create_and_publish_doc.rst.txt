@@ -76,9 +76,9 @@ Et le fichier ``keybindings.json`` avec le contenu suivant:
    :caption: Fichier keybindings.json
    :linenos:
 
-La configuration des racourcis claviers de ce clavier permet de:
+La configuration des racourcis claviers avec ce fichier permet de:
 
-- supprimer le racourcis ``Ctrl+q`` (lignes 2-5) qui est utilisé par vscode pour fermer l'éditeur. Cela permet, pour les utilisateurs de clavier francophone AZERTY, de ne pas fermer l'éditeur par erreur en voulant par exemple:
+- supprimer le racourcis ``Ctrl+q`` (lignes 2-5) qui est utilisé par vscode pour fermer l'éditeur. Les lettres ``a``, ``z`` et ``s`` entourant la lettre ``q`` sur un clavier AZERTY de francophone, cela permet de ne pas fermer l'éditeur par erreur en voulant par exemple:
 
    - taper ``Ctrl+a`` pour sélectionner tout le texte ou
    - taper ``Ctrl+z`` pour annuler une action ou
