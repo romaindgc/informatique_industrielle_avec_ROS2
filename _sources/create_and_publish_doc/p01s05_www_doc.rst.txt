@@ -71,6 +71,9 @@ L'adresse ssh vous permet de pousser sans taper de mot de passe tandis qu'avec l
    git; adresse du dépôt distant
    github; remote
    github; adresse du dépôt distant
+
+Trouver l'adresse du dépôt distant pour les opérations de clone, pull, push, etc.
+
 .. _get_git_remote_project_address:
 .. tabs::
 
