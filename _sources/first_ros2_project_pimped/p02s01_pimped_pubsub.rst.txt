@@ -55,6 +55,7 @@ Nous allons maintenant compiler le package ``scara_tutorial_ros2`` que nous veno
 .. code-block:: bash
 
    cd ~/info_indus/ros2_ws
+   sudo apt-get update
    ros2_humble
    ros2_build
 
