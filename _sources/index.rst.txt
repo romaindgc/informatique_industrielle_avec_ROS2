@@ -24,6 +24,7 @@
    :caption: Tutoriel ROS2 épicé
 
    first_ros2_project_pimped/p02s01_pimped_pubsub
+   first_ros2_project_pimped/p02s02_add_parameters
 
 **************************
 Index, figures et tableaux
