@@ -65,6 +65,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#rappels-setup-ros2">Rappels : setup ROS2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#premiers-pas-avec-le-package-scara-tutorial-ros2">Premiers pas avec le package scara_tutorial_ros2</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#creer-la-description-urdf-physique-d-un-robot">Créer la description URDF physique d’un robot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creer-un-projet-ros2-c-publisher-subscriber">Créer un projet ROS2 c++ publisher-subscriber</a></li>
 </ul>
 </li>
 </ul>
@@ -196,6 +197,21 @@ ros2_build
 </pre></div>
 </div>
 <p>Si tout s’est bien passé, vous devriez voir un message de succès à la fin de la compilation.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#All required rosdeps installed successfully</span>
+Starting<span class="w"> </span>&gt;&gt;&gt;<span class="w"> </span>scara_description
+Starting<span class="w"> </span>&gt;&gt;&gt;<span class="w"> </span>scara_bringup
+Starting<span class="w"> </span>&gt;&gt;&gt;<span class="w"> </span>scara_joint_velocity_controller
+Starting<span class="w"> </span>&gt;&gt;&gt;<span class="w"> </span>scara_nodes
+Finished<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span>scara_description<span class="w"> </span><span class="o">[</span><span class="m">0</span>.88s<span class="o">]</span>
+Starting<span class="w"> </span>&gt;&gt;&gt;<span class="w"> </span>scara_hardware
+Finished<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span>scara_nodes<span class="w"> </span><span class="o">[</span><span class="m">0</span>.90s<span class="o">]</span>
+Finished<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span>scara_bringup<span class="w"> </span><span class="o">[</span><span class="m">1</span>.14s<span class="o">]</span>
+Finished<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span>scara_hardware<span class="w"> </span><span class="o">[</span><span class="m">4</span>.50s<span class="o">]</span>
+Finished<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span>scara_joint_velocity_controller<span class="w"> </span><span class="o">[</span><span class="m">8</span>.28s<span class="o">]</span>
+
+Summary:<span class="w"> </span><span class="m">5</span><span class="w"> </span>packages<span class="w"> </span>finished<span class="w"> </span><span class="o">[</span><span class="m">8</span>.52s<span class="o">]</span>
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code class="docutils literal notranslate"><span class="pre">ros2_humble</span></code> est un alias qui charge l’environnement ROS2 de la distribution humble.
@@ -207,6 +223,37 @@ ros2_build
 <ol class="arabic simple">
 <li><p><a class="reference external" href="https://github.com/yguel/scara_tutorial_ros2/blob/main/resources/urdf_tutorial.md">tutoriel URDF</a></p></li>
 <li><p><a class="reference external" href="https://github.com/yguel/scara_tutorial_ros2/blob/main/resources/launch_tutorial.md">Comment lancer et intéragir avec le système courant</a></p></li>
+</ol>
+</section>
+<section id="creer-un-projet-ros2-c-publisher-subscriber">
+<h3>Créer un projet ROS2 c++ publisher-subscriber<a class="headerlink" href="#creer-un-projet-ros2-c-publisher-subscriber" title="Lien vers cette rubrique"></a></h3>
+<p>Nous allons maintenant créer un nœud ROS2 c++ qui va souscrire au topic <code class="docutils literal notranslate"><span class="pre">/joint_states</span></code> et publier sur un topic <code class="docutils literal notranslate"><span class="pre">/velocity_supervision</span></code> lorsque la vitesse d’un point physique du robot dépasse un certain seuil.</p>
+<p>Pour cela il va falloir créer 2 packages ROS2:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/info_indus/ros2_ws/src
+ros2<span class="w"> </span>pkg<span class="w"> </span>create<span class="w"> </span>--build-type<span class="w"> </span>ament_cmake<span class="w"> </span>--license<span class="w"> </span>Apache-2.0<span class="w"> </span>scara_velocity_supervision
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">pkg</span> <span class="pre">create</span></code> est une commande qui crée un package ROS2 avec le nom donné en argument.
+L’option <code class="docutils literal notranslate"><span class="pre">--build-type</span> <span class="pre">ament_cmake</span></code> indique que le package sera en c++.</p>
+<p>Il faudra créer un package dédié au message qui sera transmis sur le topic <code class="docutils literal notranslate"><span class="pre">/velocity_supervision</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/info_indus/ros2_ws/src
+ros2<span class="w"> </span>pkg<span class="w"> </span>create<span class="w"> </span>--build-type<span class="w"> </span>ament_cmake<span class="w"> </span>--license<span class="w"> </span>Apache-2.0<span class="w"> </span>scara_velocity_supervision_msgs
+</pre></div>
+</div>
+<p>Étapes:</p>
+<ol class="arabic simple">
+<li><p>Créez des projets git et enregistrez vos packages sur github.</p></li>
+<li><p>Quelles dépendances ajouter à ces packages?</p></li>
+<li><p>Comment créer un nœud ROS2 c++ qui souscrit à un topic et publie sur un autre topic?</p></li>
+<li><p>Ajoutez les fichiers du projet à votre git et publiez les sur github.</p></li>
+<li><p>Créez une documentation pour chacun de ces 2 packages.</p></li>
+<li><p>Créez le code c++ en utilisant les transformations qui vient vérifier les vitesses de n’importe quel point physique du robot.</p></li>
+<li><p>Documentez votre code.</p></li>
+</ol>
+<p>Une fois ces tâches accomplies nous allons regarder:</p>
+<ol class="arabic simple">
+<li><p>Comment rendre votre nœud ROS2 paramétrable.</p></li>
+<li><p>Comment tester de manière automatique votre code.</p></li>
 </ol>
 </section>
 </section>
