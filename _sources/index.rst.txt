@@ -19,6 +19,11 @@
    create_and_publish_doc/p01s04_create_doc
    create_and_publish_doc/p01s05_www_doc
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Tutoriel ROS2 épicé
+
+   first_ros2_project_pimped/p02s01_pimped_pubsub
 
 **************************
 Index, figures et tableaux
