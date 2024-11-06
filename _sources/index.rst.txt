@@ -3,28 +3,18 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Introduction
-
-   introduction/p00s01_intro
+*******************
+Table des matières
+*******************
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Premier projet & Doc
+   :maxdepth: 3
+   :caption: Informatique Industrielle & ROS2
 
-   create_and_publish_doc/p01s01_quality_docs
-   create_and_publish_doc/p01s02_create_and_publish_doc
-   create_and_publish_doc/p01s03_git
-   create_and_publish_doc/p01s04_create_doc
-   create_and_publish_doc/p01s05_www_doc
+   c00_introduction/p00s00_index
+   c01_create_and_publish_doc/p01s00_index
+   c02_first_ros2_project_pimped/p02s00_index
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Tutoriel ROS2 épicé
-
-   first_ros2_project_pimped/p02s01_pimped_pubsub
-   first_ros2_project_pimped/p02s02_add_parameters
 
 **************************
 Index, figures et tableaux
