@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tutoriel ROS2 épicé &mdash; Documentation Cours d&#39;Informatique Industrielle avec ROS2 1.0.0</title>
+  <title>Génération de la description URDF du pantographe &mdash; Documentation Cours d&#39;Informatique Industrielle avec ROS2 1.0.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -25,8 +25,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Rappels : setup ROS2" href="p02s01_pimped_pubsub.html" />
-    <link rel="prev" title="Publier la documentation" href="../c01_create_and_publish_doc/p01s05_www_doc.html" /> 
+    <link rel="next" title="Ubuntu &amp; RPi &amp; ROS2" href="../p01_rpi_ubuntu_as_a_ros2_robotic_platform/p51s00_index.html" />
+    <link rel="prev" title="Description mécanique de la plateforme pantographe" href="p50s02_mechanical_description.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,19 +49,19 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Informatique Industrielle &amp; ROS2</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../c00_introduction/p00s00_index.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c01_create_and_publish_doc/p01s00_index.html">Premier projet &amp; doc</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutoriel ROS2 épicé</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="p02s01_pimped_pubsub.html">Rappels : setup ROS2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p02s01_pimped_pubsub.html#premiers-pas-avec-le-package-scara-tutorial-ros2">Premiers pas avec le package scara_tutorial_ros2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p02s02_add_parameters.html">Utiliser la librairie generate_parameter_library</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../c02_first_ros2_project_pimped/p02s00_index.html">Tutoriel ROS2 épicé</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Travaux Pratiques</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../p00_pentograph_pencil_holder_with_rpi_and_dynamixel/p50s00_index.html">Pantographe de dessin robotisé avec Raspberry Pi et ROS2</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="p50s00_index.html">Pantographe de dessin robotisé avec Raspberry Pi et ROS2</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="p50s01_material_description.html">Description du matériel de la plateforme pantographe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p50s02_mechanical_description.html">Description mécanique de la plateforme pantographe</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Génération de la description URDF du pantographe</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../p01_rpi_ubuntu_as_a_ros2_robotic_platform/p51s00_index.html">Ubuntu &amp; RPi &amp; ROS2</a></li>
 </ul>
 
@@ -79,9 +79,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Tutoriel ROS2 épicé</li>
+          <li class="breadcrumb-item"><a href="p50s00_index.html">Pantographe de dessin robotisé avec Raspberry Pi et ROS2</a></li>
+      <li class="breadcrumb-item active">Génération de la description URDF du pantographe</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/c02_first_ros2_project_pimped/p02s00_index.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+            <a href="../_sources/p00_pentograph_pencil_holder_with_rpi_and_dynamixel/p50s03_urdf.rst.txt" rel="nofollow"> Afficher la source de la page</a>
       </li>
   </ul>
   <hr/>
@@ -89,27 +90,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="tutoriel-ros2-epice">
-<h1>Tutoriel ROS2 épicé<a class="headerlink" href="#tutoriel-ros2-epice" title="Lien vers cette rubrique"></a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="p02s01_pimped_pubsub.html">Rappels : setup ROS2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p02s01_pimped_pubsub.html#premiers-pas-avec-le-package-scara-tutorial-ros2">Premiers pas avec le package scara_tutorial_ros2</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="p02s01_pimped_pubsub.html#creer-la-description-urdf-physique-d-un-robot">Créer la description URDF physique d’un robot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p02s01_pimped_pubsub.html#creer-un-projet-ros2-c-publisher-subscriber">Créer un projet ROS2 c++ publisher-subscriber</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="p02s02_add_parameters.html">Utiliser la librairie generate_parameter_library</a></li>
-</ul>
-</div>
+  <section id="generation-de-la-description-urdf-du-pantographe">
+<h1>Génération de la description URDF du pantographe<a class="headerlink" href="#generation-de-la-description-urdf-du-pantographe" title="Lien vers cette rubrique"></a></h1>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
-        <a href="../c01_create_and_publish_doc/p01s05_www_doc.html" class="btn btn-neutral float-left" title="Publier la documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
-        <a href="p02s01_pimped_pubsub.html" class="btn btn-neutral float-right" title="Rappels : setup ROS2" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="p50s02_mechanical_description.html" class="btn btn-neutral float-left" title="Description mécanique de la plateforme pantographe" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="../p01_rpi_ubuntu_as_a_ros2_robotic_platform/p51s00_index.html" class="btn btn-neutral float-right" title="Ubuntu &amp; RPi &amp; ROS2" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

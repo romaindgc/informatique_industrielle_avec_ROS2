@@ -15,6 +15,13 @@ Table des matières
    c01_create_and_publish_doc/p01s00_index
    c02_first_ros2_project_pimped/p02s00_index
 
+.. toctree:: 
+   :maxdepth: 3
+   :caption: Travaux Pratiques
+
+   p00_pentograph_pencil_holder_with_rpi_and_dynamixel/p50s00_index
+   p01_rpi_ubuntu_as_a_ros2_robotic_platform/p51s00_index
+
 
 **************************
 Index, figures et tableaux
