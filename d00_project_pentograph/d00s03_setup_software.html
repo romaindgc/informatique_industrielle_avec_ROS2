@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; Documentation Cours d&#39;Informatique Industrielle avec ROS2 1.0.0</title>
+  <title>Setup du software &mdash; Documentation Cours d&#39;Informatique Industrielle avec ROS2 1.0.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -26,7 +26,8 @@
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Recherche" href="../search.html" /> 
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="prev" title="Montage du hardware" href="d00s02_montage_hardware.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -62,8 +63,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../p01_rpi_ubuntu_as_a_ros2_robotic_platform/p51s00_index.html">Ubuntu &amp; RPi &amp; ROS2</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projet Pentographe INSA</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../d00_project_pentograph/d00s00_index.html">Projet pentaographe INSA - DEGRACE - ANNE</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="d00s00_index.html">Projet pentaographe INSA - DEGRACE - ANNE</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="d00s01_introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d00s02_montage_hardware.html">Montage du hardware</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Setup du software</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installer-ubuntu-sur-la-rpi5">Installer Ubuntu sur la RPI5</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -80,9 +89,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+          <li class="breadcrumb-item"><a href="d00s00_index.html">Projet pentaographe INSA - DEGRACE - ANNE</a></li>
+      <li class="breadcrumb-item active">Setup du software</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/cxx_cheatsheets/cheatsheet_ros2.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+            <a href="../_sources/d00_project_pentograph/d00s03_setup_software.rst.txt" rel="nofollow"> Afficher la source de la page</a>
       </li>
   </ul>
   <hr/>
@@ -90,11 +100,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <section id="setup-du-software">
+<h1>Setup du software<a class="headerlink" href="#setup-du-software" title="Lien vers cette rubrique"></a></h1>
+<section id="installer-ubuntu-sur-la-rpi5">
+<h2>Installer Ubuntu sur la RPI5<a class="headerlink" href="#installer-ubuntu-sur-la-rpi5" title="Lien vers cette rubrique"></a></h2>
+<p>La première étape ici, consiste à installer unbuntu sur la RPI5.
+Nous avons à disposition une carte sd pre-programé avec l’OS Raspberry Pi.
+La première étape consiste donc à insérer la carte sd en question dan la Rasberry pi comme indiqué sur l’image ci-dessous:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/sd_rasberry.jpg"><img alt="../_images/sd_rasberry.jpg" src="../_images/sd_rasberry.jpg" style="width: 30%;" />
+</a>
+</figure>
+<p>Une fois ceci fait devons brancher une souris et un clavier d’ordinateur à la pi dans les ports usb prévu à cet effet. Il ne nous reste plus qu’à brancher un écran et à alimenter la rasberry à l’aide de notre alimentation.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/branchement_rpi.jpg"><img alt="../_images/branchement_rpi.jpg" src="../_images/branchement_rpi.jpg" style="width: 30%;" />
+</a>
+</figure>
+</section>
+</section>
+
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="d00s02_montage_hardware.html" class="btn btn-neutral float-left" title="Montage du hardware" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+    </div>
 
   <hr/>
 

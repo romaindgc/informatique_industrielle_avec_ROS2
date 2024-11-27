@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; Documentation Cours d&#39;Informatique Industrielle avec ROS2 1.0.0</title>
+  <title>Montage du hardware &mdash; Documentation Cours d&#39;Informatique Industrielle avec ROS2 1.0.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -26,7 +26,9 @@
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Recherche" href="../search.html" /> 
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Setup du software" href="d00s03_setup_software.html" />
+    <link rel="prev" title="Introduction" href="d00s01_introduction.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -62,8 +64,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../p01_rpi_ubuntu_as_a_ros2_robotic_platform/p51s00_index.html">Ubuntu &amp; RPi &amp; ROS2</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projet Pentographe INSA</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../d00_project_pentograph/d00s00_index.html">Projet pentaographe INSA - DEGRACE - ANNE</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="d00s00_index.html">Projet pentaographe INSA - DEGRACE - ANNE</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="d00s01_introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Montage du hardware</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#montage-du-ventilateur-sur-la-rpi5">Montage du ventilateur sur la RPI5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#montage-du-disque">Montage du disque</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="d00s03_setup_software.html">Setup du software</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -80,9 +91,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+          <li class="breadcrumb-item"><a href="d00s00_index.html">Projet pentaographe INSA - DEGRACE - ANNE</a></li>
+      <li class="breadcrumb-item active">Montage du hardware</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/cxx_cheatsheets/cheatsheet_ros2.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+            <a href="../_sources/d00_project_pentograph/d00s02_montage_hardware.rst.txt" rel="nofollow"> Afficher la source de la page</a>
       </li>
   </ul>
   <hr/>
@@ -90,11 +102,54 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <section id="montage-du-hardware">
+<h1>Montage du hardware<a class="headerlink" href="#montage-du-hardware" title="Lien vers cette rubrique"></a></h1>
+<p>La première étape pour construire notre mini-ordinateur consiste à assembler la Raspberry Pi 5 avec un ventilateur et une base NVMe, sur laquelle un disque SSD doit être préalablement installé. Cette section détaille les différentes étapes de l’assemblage.</p>
+<section id="montage-du-ventilateur-sur-la-rpi5">
+<h2>Montage du ventilateur sur la RPI5<a class="headerlink" href="#montage-du-ventilateur-sur-la-rpi5" title="Lien vers cette rubrique"></a></h2>
+<p>Nous débutons par l’installation du ventilateur sur la Raspberry Pi 5, en suivant <a class="reference external" href="https://datasheets.raspberrypi.com/cooling/raspberry-pi-active-cooler-product-brief.pdf">le tutoriel fourni avec le produit</a>.</p>
+</section>
+<section id="montage-du-disque">
+<h2>Montage du disque<a class="headerlink" href="#montage-du-disque" title="Lien vers cette rubrique"></a></h2>
+<p>Dans cette section, nous chercherons à monter le disque sur la base.
+Le disque que nous avons à disposition se présente comme ci-dessous :</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/SSD.jpg"><img alt="../_images/SSD.jpg" src="../_images/SSD.jpg" style="width: 30%;" />
+</a>
+</figure>
+<p>Nous identifions deux éléments : le disque SSD proprement dit et un dissipateur thermique (bleu). La première étape consiste à fixer le dissipateur sur le SSD. Pour cela, il suffit de retirer le film protecteur du dissipateur, puis de coller la partie adhésive sur le côté approprié du SSD (face visisble du ssd sur la photo précédente).</p>
+<p>Voici ci-dessous le SSD avec son dissipateur thermique fixé :
+.. figure:: resources/img/carte_ssd.jpg</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">align<span class="colon">:</span></dt>
+<dd class="field-odd"><p>center</p>
+</dd>
+<dt class="field-even">width<span class="colon">:</span></dt>
+<dd class="field-even"><p>30%</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Nous pouvons maintenant commencer <a class="reference external" href="https://learn.pimoroni.com/article/getting-started-with-nvme-base">ce tutoriel</a> (faire le tutoriel jusqu’à la partie « Putting it Together » comprise), qui expliquera comment monter le disque sur la base, puis la base sur la Raspberry Pi.
+.. note:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Pour insérer le SSD dans la base, il est nécessaire de l’introduire avec un certain angle. Inutile de forcer, il s’insère facilement.L’image ci-dessous illustre cette étape:
+.. figure:: resources/img/base_ssd.jpg
+   :align: center
+   :width: 30%
+Nous ne souhaitons pas ajouté &quot;un chapeau&quot; sur le rpi5 ainsi les petites vis suffiront.
+</pre></div>
+</div>
+<p>Une fois le tutoriel réalisé, nous avons fini l’assemblage des différents composants, il nous reste à présent à nous occuper du software.</p>
+</section>
+</section>
+
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="d00s01_introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="d00s03_setup_software.html" class="btn btn-neutral float-right" title="Setup du software" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

@@ -25,6 +25,12 @@ Table des matières
    p01_rpi_ubuntu_as_a_ros2_robotic_platform/p51s00_index
 
 
+.. toctree:: 
+   :maxdepth: 3
+   :caption: Projet Pentographe INSA
+
+   d00_project_pentograph/d00s00_index
+
 **************************
 Index, figures et tableaux
 **************************
