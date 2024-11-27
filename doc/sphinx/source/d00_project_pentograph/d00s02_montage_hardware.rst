@@ -31,6 +31,6 @@ Nous pouvons maintenant commencer `ce tutoriel <https://learn.pimoroni.com/artic
    .. figure:: resources/img/base_ssd.jpg
       :align: center
       :width: 30%
-   Nous ne souhaitons pas ajouté "un chapeau" sur le rpi5 ainsi les petites vis suffiront.
+   Nous ne souhaitons pas ajouter "un chapeau" sur le rpi5 ainsi les petites vis suffiront.
 
 Une fois le tutoriel réalisé, nous avons fini l'assemblage des différents composants, il nous reste à présent à nous occuper du software.
