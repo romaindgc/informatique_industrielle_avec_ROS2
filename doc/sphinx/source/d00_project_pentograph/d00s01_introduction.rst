@@ -60,12 +60,12 @@ La base NVMe permet d'acceuillir le SSD afin de le lier à la RPI5.
 Spécification moteur AX-12
 *****************************
 
-Voici quelques caractéristiques techniques du moteur AX-12 de chez Dynamixel :
-* Dimensions : 32 x 50 x 40 [mm]    
-* Rapport de transmission : 254:1  
-* Couple décrochage : 1.5Nm (at 12V, 1.5A)  
-* Vitesse à vide : 59rev/min (at 12V)
-* Tension d'entrée : 9.0V à 12.0V - recommandée : 11.1V
-* Feedback : Position, Température, Charge, Tension d'entrée,...
+Voici quelques caractéristiques techniques du moteur AX-12 de chez Dynamixel : 
+   * Dimensions : 32 x 50 x 40 [mm]     
+   * Rapport de transmission : 254:1   
+   * Couple décrochage : 1.5Nm (at 12V, 1.5A)   
+   * Vitesse à vide : 59rev/min (at 12V)  
+   * Tension d'entrée : 9.0V à 12.0V - recommandée : 11.1V  
+   * Feedback : Position, Température, Charge, Tension d'entrée,...  
 
-Voir la `datasheet AX-12 <https://emanual.robotis.com/docs/en/dxl/ax/ax-12a/>`_ du moteur pour plus d'information.  
+Voir la `datasheet AX-12 <https://emanual.robotis.com/docs/en/dxl/ax/ax-12a/>`_ du moteur pour plus d'information.   
