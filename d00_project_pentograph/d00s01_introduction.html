@@ -71,6 +71,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#liste-du-materiel">Liste du matériel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#specification-rpi5">Spécification RPI5</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#specification-strorage">Spécification strorage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#specification-moteur-ax-12">Spécification moteur AX-12</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="d00s02_montage_hardware.html">Montage du hardware</a></li>
@@ -121,6 +122,8 @@
 <li><p><a class="reference external" href="https://www.raspberrypi.com/products/active-cooler/">Active cooler</a> (Raspberry PI 5 offical)</p></li>
 <li><p><a class="reference external" href="https://shop.pimoroni.com/products/nvme-base?variant=41219587178579">NVMe Base</a></p></li>
 <li><p><a class="reference external" href="https://www.adata.com/fr/consumer/category/ssds/solid-state-drives-legend-700/?tab=description">SSD</a>  (storage)</p></li>
+<li><p>Maquette pentographe équipée de 2 <a class="reference external" href="https://emanual.robotis.com/docs/en/dxl/ax/ax-12a/">moteurs AX-12</a>  de chez Dynamixel</p></li>
+<li><p>USB communication converter <a class="reference external" href="https://emanual.robotis.com/docs/en/parts/interface/u2d2/">U2D2</a></p></li>
 </ol>
 </section>
 <section id="specification-rpi5">
@@ -155,6 +158,17 @@
 </dl>
 <p>Voir le site de <a class="reference external" href="https://www.adata.com/fr/consumer/category/ssds/solid-state-drives-legend-700/?tab=description">SSD</a> pour plus de détails.
 La base NVMe permet d’acceuillir le SSD afin de le lier à la RPI5.</p>
+</section>
+<section id="specification-moteur-ax-12">
+<h2>Spécification moteur AX-12<a class="headerlink" href="#specification-moteur-ax-12" title="Lien vers cette rubrique"></a></h2>
+<p>Voici quelques caractéristiques techniques du moteur AX-12 de chez Dynamixel :
+* Dimensions : 32 x 50 x 40 [mm]
+* Rapport de transmission : 254:1
+* Couple décrochage : 1.5Nm (at 12V, 1.5A)
+* Vitesse à vide : 59rev/min (at 12V)
+* Tension d’entrée : 9.0V à 12.0V - recommandée : 11.1V
+* Feedback : Position, Température, Charge, Tension d’entrée,…</p>
+<p>Voir la <a class="reference external" href="https://emanual.robotis.com/docs/en/dxl/ax/ax-12a/">datasheet AX-12</a> du moteur pour plus d’information.</p>
 </section>
 </section>
 

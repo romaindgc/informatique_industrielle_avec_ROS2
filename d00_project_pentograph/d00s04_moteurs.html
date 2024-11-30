@@ -1,0 +1,190 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Utilisation des moteurs dynamixel &mdash; Documentation Cours d&#39;Informatique Industrielle avec ROS2 1.0.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=fdcf8bf8" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=05dadb3a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/translations.js?v=e6b791cb"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cours d'Informatique Industrielle avec ROS2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Informatique Industrielle &amp; ROS2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../c00_introduction/p00s00_index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c01_create_and_publish_doc/p01s00_index.html">Premier projet &amp; doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c02_first_ros2_project_pimped/p02s00_index.html">Tutoriel ROS2 épicé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c03_test_your_code/p03s00_index.html">Tester le code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c04_collaborate_with_coders/p04s00_index.html">Les outils nécessaires pour collaborer entre codeurs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Travaux Pratiques</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../p00_pentograph_pencil_holder_with_rpi_and_dynamixel/p50s00_index.html">Pantographe de dessin robotisé avec Raspberry Pi et ROS2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../p01_rpi_ubuntu_as_a_ros2_robotic_platform/p51s00_index.html">Ubuntu &amp; RPi &amp; ROS2</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projet Pentographe INSA</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d00s00_index.html">Projet pentaographe INSA - DEGRACE - ANNE</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cours d'Informatique Industrielle avec ROS2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Utilisation des moteurs dynamixel</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/d00_project_pentograph/d00s04_moteurs.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="utilisation-des-moteurs-dynamixel">
+<h1>Utilisation des moteurs dynamixel<a class="headerlink" href="#utilisation-des-moteurs-dynamixel" title="Lien vers cette rubrique"></a></h1>
+<section id="information-sur-les-moteurs">
+<h2>Information sur les moteurs<a class="headerlink" href="#information-sur-les-moteurs" title="Lien vers cette rubrique"></a></h2>
+<p>Dans ce projet, nous utilisons les <a class="reference external" href="https://emanual.robotis.com/docs/en/dxl/ax/ax-12a/">moteurs AX-12</a> de chez Dynamixel.</p>
+<p>Pour les piloter, nous utilisons le convertisseur de communication USB <a class="reference external" href="https://emanual.robotis.com/docs/en/parts/interface/u2d2/">U2D2</a> pour controller les moteurs avec l’ordinateur.</p>
+</section>
+<section id="exemple-d-utilisation">
+<h2>Exemple d’utilisation<a class="headerlink" href="#exemple-d-utilisation" title="Lien vers cette rubrique"></a></h2>
+<p>Dans cette partie, nous allons réaliser un exemple très simple pour prendre en main le control des moteurs avec ROS2. Pour cela, nous allons nous appuyer sur un exemple de Dynamxiel.</p>
+<p>Dans un premier temps, suivre le tutoriel suivant <strong>jusqu’à 1.47 min</strong>  : <a class="reference external" href="https://www.youtube.com/watch?v=E8XPqDjof4U&amp;ab_channel=ROBOTISOpenSourceTeam">tutoriel</a></p>
+<p>À travers cette partie du tutoriel, nous avons pu réaliser les branchements, téléchager l’exemple et le build.</p>
+<section id="le-groupe-dialout">
+<h3>Le groupe <em>dialout</em><a class="headerlink" href="#le-groupe-dialout" title="Lien vers cette rubrique"></a></h3>
+<p>La partie s’arrête avec la commande suivante :
+.. code-block:: bash</p>
+<blockquote>
+<div><p>sudo usermod -aG dialout &lt;linux_account&gt;</p>
+</div></blockquote>
+<p>Pour communiquer avec les moteurs, nous utilisons l’USB. Via la commande précédente dans le tutoriel, nous avons vu que nous communiquons via le port <strong>ttyUSB0</strong>.
+Pour pouvoir utilser ce port, nous devons être inscrit dans le groupe <strong>dialout</strong> et la commande décrite précédemment nous permet de nous inscrire justement dans ce groupe.</p>
+<p><strong>NB :</strong> Si vous ne connaisez pas votre <em>linux_account</em> vous pouvez utiliser la commande suivante pour l’afficher :
+.. code-block:: bash</p>
+<blockquote>
+<div><p>whoami</p>
+</div></blockquote>
+<p>Une fois que vous vous êtes ajouté au groupe, redémarrez votre ordinateur.
+<em>NB : il s’agit ici d’une sécurité d’Ubuntu</em></p>
+<p>Pour vérifier que vous être bien inscrit au groupe, vous pouvez effectuer la commande suivante :
+.. code-block:: bash</p>
+<blockquote>
+<div><p>groups</p>
+</div></blockquote>
+<p>Le groupe <em>dialout</em> devrait appaître.</p>
+</section>
+<section id="adaptation-du-code">
+<h3>Adaptation du code<a class="headerlink" href="#adaptation-du-code" title="Lien vers cette rubrique"></a></h3>
+<p>L’exemple que nous sommes en train de suivre est en réalité adapté aux moteurs XL430-W250. Ainsi, nous devons légèrement l’adapter pour qu’il fonctionne avec nos moteurs. Dans un premier temps, nous devons modifer les adresses.</p>
+<section id="changement-des-adresses">
+<h4>Changement des adresses<a class="headerlink" href="#changement-des-adresses" title="Lien vers cette rubrique"></a></h4>
+<p>Dans l’exemple actuel, nous écrivons les données aux mauvais endroits dans les moteurs. Pour corriger cela, nous devons ajuster les adresses. Pour cela, rendez-vous dans le code de l’exemple, le fichier <strong>read_write_node.cpp</strong>. Si vous avez suivi la même nomenclature que dans l’exemple, la commande suivante devrait l’ouvrir :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/robotis_ws/src/dynamixel_sdk_examples/src<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>code<span class="w"> </span>.
+</pre></div>
+</div>
+<p>Changez les lignes 42 à 46 par le code suivant :</p>
+<p>Pour connaitre les adresses à mettre, se référer à la <a class="reference external" href="https://emanual.robotis.com/docs/en/dxl/ax/ax-12a/">datasheet AX-12</a>  du moteur dans le tableau <em>Control Table of RAM Area</em>.
+<em>NB : le moteur AX-12 n’a pas de registre pour OPERATING_MODE, nous avons donc mis la valeur 255 pour être sur de ne pas écrire dans registre existant important.</em></p>
+</section>
+<section id="changement-du-protocol-de-communication">
+<h4>Changement du protocol de communication<a class="headerlink" href="#changement-du-protocol-de-communication" title="Lien vers cette rubrique"></a></h4>
+<p>Dans le documentation technique du moteur, nous pouvons également trouver qu’il communique en utilisant le protocole 1.0 et non 2.0 comme il est configuré dans le code. Pour changer cela, remplacez la ligne 49 par la ligne suivante :</p>
+</section>
+<section id="connaitre-le-baudrate">
+<h4>Connaître le baudrate<a class="headerlink" href="#connaitre-le-baudrate" title="Lien vers cette rubrique"></a></h4>
+<p>Enfin, nous devons connaître le <strong>baudrate</strong> de nos moteurs pour pouvoir communiquer avec eux. En effet, nous devons parler et écouter à la même vitesse pour pouvoir se comprendre. Pour connâitre le <strong>baudrate</strong> des moteurs, nous pouvons utiliser le logiciel <a class="reference external" href="https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/">Wizard 2.0</a> de chez Dynamixel. En scannant les moteurs, le logiciel va trouver le baudrate.</p>
+<p>De plus, ce logiciel permet également de controller les moteurs basiquement pour voir si ces derniers fonctionnent bien.</p>
+</section>
+</section>
+<section id="finir-le-tutoriel">
+<h3>Finir le tutoriel<a class="headerlink" href="#finir-le-tutoriel" title="Lien vers cette rubrique"></a></h3>
+<p>Une fois ces étapes réalisées, vous pouvez enfin terminer le <a class="reference external" href="https://www.youtube.com/watch?v=E8XPqDjof4U&amp;ab_channel=ROBOTISOpenSourceTeam">tutoriel</a>  .
+Les moteurs devraient tourner !</p>
+<section id="explication-du-code">
+<h4>Explication du code<a class="headerlink" href="#explication-du-code" title="Lien vers cette rubrique"></a></h4>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Manuel YGUEL.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+##################################
+Utilisation des moteurs dynamixel
+##################################
+
+*************************************
+Information sur les moteurs
+*************************************
+
+Dans ce projet, nous utilisons les `moteurs AX-12 <https://emanual.robotis.com/docs/en/dxl/ax/ax-12a/>`_ de chez Dynamixel.   
+
+Pour les piloter, nous utilisons le convertisseur de communication USB `U2D2 <https://emanual.robotis.com/docs/en/parts/interface/u2d2/>`_ pour controller les moteurs avec l'ordinateur.
+
+*************************************
+Exemple d'utilisation
+*************************************
+
+Dans cette partie, nous allons réaliser un exemple très simple pour prendre en main le control des moteurs avec ROS2. Pour cela, nous allons nous appuyer sur un exemple de Dynamxiel.  
+
+Dans un premier temps, suivre le tutoriel suivant **jusqu'à 1.47 min**  : `tutoriel <https://www.youtube.com/watch?v=E8XPqDjof4U&ab_channel=ROBOTISOpenSourceTeam>`_  
+
+À travers cette partie du tutoriel, nous avons pu réaliser les branchements, téléchager l'exemple et le build.  
+
+Le groupe *dialout*
+~~~~~~~~~~~~~~~~~~~~~
+
+La partie s'arrête avec la commande suivante : 
+.. code-block:: bash
+
+   sudo usermod -aG dialout <linux_account>
+
+
+Pour communiquer avec les moteurs, nous utilisons l'USB. Via la commande précédente dans le tutoriel, nous avons vu que nous communiquons via le port **ttyUSB0**.   
+Pour pouvoir utilser ce port, nous devons être inscrit dans le groupe **dialout** et la commande décrite précédemment nous permet de nous inscrire justement dans ce groupe.  
+
+**NB :** Si vous ne connaisez pas votre *linux_account* vous pouvez utiliser la commande suivante pour l'afficher : 
+.. code-block:: bash
+
+   whoami
+
+Une fois que vous vous êtes ajouté au groupe, redémarrez votre ordinateur.  
+*NB : il s'agit ici d'une sécurité d'Ubuntu*  
+
+Pour vérifier que vous être bien inscrit au groupe, vous pouvez effectuer la commande suivante : 
+.. code-block:: bash
+
+   groups
+
+Le groupe *dialout* devrait appaître.  
+
+
+Adaptation du code
+~~~~~~~~~~~~~~~~~~~~
+
+L'exemple que nous sommes en train de suivre est en réalité adapté aux moteurs XL430-W250. Ainsi, nous devons légèrement l'adapter pour qu'il fonctionne avec nos moteurs. Dans un premier temps, nous devons modifer les adresses.  
+
+Changement des adresses
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Dans l'exemple actuel, nous écrivons les données aux mauvais endroits dans les moteurs. Pour corriger cela, nous devons ajuster les adresses. Pour cela, rendez-vous dans le code de l'exemple, le fichier **read_write_node.cpp**. Si vous avez suivi la même nomenclature que dans l'exemple, la commande suivante devrait l'ouvrir : 
+
+.. code-block:: bash
+
+   cd ~/robotis_ws/src/dynamixel_sdk_examples/src && code .
+
+Changez les lignes 42 à 46 par le code suivant : 
+
+.. code-block:: cpp
+   // Control table address for X series (except XL-320)
+   #define ADDR_OPERATING_MODE 255
+   #define ADDR_TORQUE_ENABLE 24
+   #define ADDR_GOAL_POSITION 30
+   #define ADDR_PRESENT_POSITION 36
+
+Pour connaitre les adresses à mettre, se référer à la `datasheet AX-12 <https://emanual.robotis.com/docs/en/dxl/ax/ax-12a/>`_  du moteur dans le tableau *Control Table of RAM Area*.  
+*NB : le moteur AX-12 n'a pas de registre pour OPERATING_MODE, nous avons donc mis la valeur 255 pour être sur de ne pas écrire dans registre existant important.*  
+
+Changement du protocol de communication
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Dans le documentation technique du moteur, nous pouvons également trouver qu'il communique en utilisant le protocole 1.0 et non 2.0 comme il est configuré dans le code. Pour changer cela, remplacez la ligne 49 par la ligne suivante : 
+
+.. code-block:: cpp
+   #define PROTOCOL_VERSION 1.0
+
+
+Connaître le baudrate
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Enfin, nous devons connaître le **baudrate** de nos moteurs pour pouvoir communiquer avec eux. En effet, nous devons parler et écouter à la même vitesse pour pouvoir se comprendre. Pour connâitre le **baudrate** des moteurs, nous pouvons utiliser le logiciel `Wizard 2.0 <https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/>`_ de chez Dynamixel. En scannant les moteurs, le logiciel va trouver le baudrate.  
+
+De plus, ce logiciel permet également de controller les moteurs basiquement pour voir si ces derniers fonctionnent bien.  
+
+Finir le tutoriel
+~~~~~~~~~~~~~~~~~~~~
+
+Une fois ces étapes réalisées, vous pouvez enfin terminer le `tutoriel <https://www.youtube.com/watch?v=E8XPqDjof4U&ab_channel=ROBOTISOpenSourceTeam>`_  .  
+Les moteurs devraient tourner !
+
+Explication du code
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
