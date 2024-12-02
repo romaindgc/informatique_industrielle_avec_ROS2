@@ -121,25 +121,22 @@
 <p>À travers cette partie du tutoriel, nous avons pu réaliser les branchements, téléchager l’exemple et le build.</p>
 <section id="le-groupe-dialout">
 <h3>Le groupe <em>dialout</em><a class="headerlink" href="#le-groupe-dialout" title="Lien vers cette rubrique"></a></h3>
-<p>La partie s’arrête avec la commande suivante :
-.. code-block:: bash</p>
-<blockquote>
-<div><p>sudo usermod -aG dialout &lt;linux_account&gt;</p>
-</div></blockquote>
+<p>La partie s’arrête avec la commande suivante :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>dialout<span class="w"> </span>&lt;linux_account&gt;
+</pre></div>
+</div>
 <p>Pour communiquer avec les moteurs, nous utilisons l’USB. Via la commande précédente dans le tutoriel, nous avons vu que nous communiquons via le port <strong>ttyUSB0</strong>.
 Pour pouvoir utilser ce port, nous devons être inscrit dans le groupe <strong>dialout</strong> et la commande décrite précédemment nous permet de nous inscrire justement dans ce groupe.</p>
-<p><strong>NB :</strong> Si vous ne connaisez pas votre <em>linux_account</em> vous pouvez utiliser la commande suivante pour l’afficher :
-.. code-block:: bash</p>
-<blockquote>
-<div><p>whoami</p>
-</div></blockquote>
+<p><strong>NB :</strong> Si vous ne connaisez pas votre <em>linux_account</em> vous pouvez utiliser la commande suivante pour l’afficher :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>whoami
+</pre></div>
+</div>
 <p>Une fois que vous vous êtes ajouté au groupe, redémarrez votre ordinateur.
 <em>NB : il s’agit ici d’une sécurité d’Ubuntu</em></p>
-<p>Pour vérifier que vous être bien inscrit au groupe, vous pouvez effectuer la commande suivante :
-.. code-block:: bash</p>
-<blockquote>
-<div><p>groups</p>
-</div></blockquote>
+<p>Pour vérifier que vous être bien inscrit au groupe, vous pouvez effectuer la commande suivante :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>groups
+</pre></div>
+</div>
 <p>Le groupe <em>dialout</em> devrait appaître.</p>
 </section>
 <section id="adaptation-du-code">
@@ -152,16 +149,27 @@ Pour pouvoir utilser ce port, nous devons être inscrit dans le groupe <strong>d
 </pre></div>
 </div>
 <p>Changez les lignes 42 à 46 par le code suivant :</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Control table address for X series (except XL-320)</span>
+<span class="cp">#define ADDR_OPERATING_MODE 255</span>
+<span class="cp">#define ADDR_TORQUE_ENABLE 24</span>
+<span class="cp">#define ADDR_GOAL_POSITION 30</span>
+<span class="cp">#define ADDR_PRESENT_POSITION 36</span>
+</pre></div>
+</div>
 <p>Pour connaitre les adresses à mettre, se référer à la <a class="reference external" href="https://emanual.robotis.com/docs/en/dxl/ax/ax-12a/">datasheet AX-12</a>  du moteur dans le tableau <em>Control Table of RAM Area</em>.
 <em>NB : le moteur AX-12 n’a pas de registre pour OPERATING_MODE, nous avons donc mis la valeur 255 pour être sur de ne pas écrire dans registre existant important.</em></p>
 </section>
 <section id="changement-du-protocol-de-communication">
 <h4>Changement du protocol de communication<a class="headerlink" href="#changement-du-protocol-de-communication" title="Lien vers cette rubrique"></a></h4>
 <p>Dans le documentation technique du moteur, nous pouvons également trouver qu’il communique en utilisant le protocole 1.0 et non 2.0 comme il est configuré dans le code. Pour changer cela, remplacez la ligne 49 par la ligne suivante :</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#define PROTOCOL_VERSION 1.0</span>
+</pre></div>
+</div>
 </section>
 <section id="connaitre-le-baudrate">
 <h4>Connaître le baudrate<a class="headerlink" href="#connaitre-le-baudrate" title="Lien vers cette rubrique"></a></h4>
 <p>Enfin, nous devons connaître le <strong>baudrate</strong> de nos moteurs pour pouvoir communiquer avec eux. En effet, nous devons parler et écouter à la même vitesse pour pouvoir se comprendre. Pour connâitre le <strong>baudrate</strong> des moteurs, nous pouvons utiliser le logiciel <a class="reference external" href="https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/">Wizard 2.0</a> de chez Dynamixel. En scannant les moteurs, le logiciel va trouver le baudrate.</p>
+<p>Une fois la valeur du baudrate trouvé, modifier la valeur dans le code à la <strong>ligne 52</strong>.</p>
 <p>De plus, ce logiciel permet également de controller les moteurs basiquement pour voir si ces derniers fonctionnent bien.</p>
 </section>
 </section>
