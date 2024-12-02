@@ -23,7 +23,8 @@ Dans un premier temps, suivre le tutoriel suivant **jusqu'à 1.47 min**  : `tuto
 Le groupe *dialout*
 ~~~~~~~~~~~~~~~~~~~~~
 
-La partie s'arrête avec la commande suivante : 
+La partie s'arrête avec la commande suivante :  
+
 .. code-block:: bash
 
    sudo usermod -aG dialout <linux_account>
@@ -32,7 +33,8 @@ La partie s'arrête avec la commande suivante :
 Pour communiquer avec les moteurs, nous utilisons l'USB. Via la commande précédente dans le tutoriel, nous avons vu que nous communiquons via le port **ttyUSB0**.   
 Pour pouvoir utilser ce port, nous devons être inscrit dans le groupe **dialout** et la commande décrite précédemment nous permet de nous inscrire justement dans ce groupe.  
 
-**NB :** Si vous ne connaisez pas votre *linux_account* vous pouvez utiliser la commande suivante pour l'afficher : 
+**NB :** Si vous ne connaisez pas votre *linux_account* vous pouvez utiliser la commande suivante pour l'afficher :  
+
 .. code-block:: bash
 
    whoami
@@ -40,7 +42,8 @@ Pour pouvoir utilser ce port, nous devons être inscrit dans le groupe **dialout
 Une fois que vous vous êtes ajouté au groupe, redémarrez votre ordinateur.  
 *NB : il s'agit ici d'une sécurité d'Ubuntu*  
 
-Pour vérifier que vous être bien inscrit au groupe, vous pouvez effectuer la commande suivante : 
+Pour vérifier que vous être bien inscrit au groupe, vous pouvez effectuer la commande suivante :  
+
 .. code-block:: bash
 
    groups
@@ -65,6 +68,7 @@ Dans l'exemple actuel, nous écrivons les données aux mauvais endroits dans les
 Changez les lignes 42 à 46 par le code suivant : 
 
 .. code-block:: cpp
+
    // Control table address for X series (except XL-320)
    #define ADDR_OPERATING_MODE 255
    #define ADDR_TORQUE_ENABLE 24
@@ -80,6 +84,7 @@ Changement du protocol de communication
 Dans le documentation technique du moteur, nous pouvons également trouver qu'il communique en utilisant le protocole 1.0 et non 2.0 comme il est configuré dans le code. Pour changer cela, remplacez la ligne 49 par la ligne suivante : 
 
 .. code-block:: cpp
+
    #define PROTOCOL_VERSION 1.0
 
 
@@ -87,6 +92,9 @@ Connaître le baudrate
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Enfin, nous devons connaître le **baudrate** de nos moteurs pour pouvoir communiquer avec eux. En effet, nous devons parler et écouter à la même vitesse pour pouvoir se comprendre. Pour connâitre le **baudrate** des moteurs, nous pouvons utiliser le logiciel `Wizard 2.0 <https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/>`_ de chez Dynamixel. En scannant les moteurs, le logiciel va trouver le baudrate.  
+
+Une fois la valeur du baudrate trouvé, modifier la valeur dans le code à la **ligne 52**.  
+
 
 De plus, ce logiciel permet également de controller les moteurs basiquement pour voir si ces derniers fonctionnent bien.  
 
