@@ -16,9 +16,50 @@ Exemple d'utilisation
 
 Dans cette partie, nous allons réaliser un exemple très simple pour prendre en main le control des moteurs avec ROS2. Pour cela, nous allons nous appuyer sur un exemple de Dynamxiel.  
 
-Dans un premier temps, suivre le tutoriel suivant **jusqu'à 1.47 min**  : `tutoriel <https://www.youtube.com/watch?v=E8XPqDjof4U&ab_channel=ROBOTISOpenSourceTeam>`_  
+Dans un premier temps, suivre le tutoriel suivant **jusqu'à 1.13 min**  : `tutoriel <https://www.youtube.com/watch?v=E8XPqDjof4U&ab_channel=ROBOTISOpenSourceTeam>`_  
 
-À travers cette partie du tutoriel, nous avons pu réaliser les branchements, téléchager l'exemple et le build.  
+À travers cette partie du tutoriel, nous avons pu réaliser les branchements et préparer le dossier d'accueil.  
+
+Clone le projet de l'exemple et le build
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Si vous possédez **ROS2 Humble**, vous pouvez suivre le tutoriel **jusqu'à 1.47min**.  
+En cas d'une autre version de ROS2 ou d'erreurs, entrez la commande suivante pour clone le projet github :  
+
+.. code-block:: bash
+
+   cd ~/robotis_ws/src && git clone -b humble-devel https://github.com/ROBOTIS-GIT/DynmaxielSDK
+
+Une fois le projet clone, entrez la commande suivante pour le build :
+
+.. code-block:: bash
+   cd ~/robotis_ws && colcon build --symlink-install
+
+
+Le projet devrait se build sans erreur.  
+
+Sourcer ROS2 
+~~~~~~~~~~~~~
+
+Dans le tutoriel, vous voyez la commande suivante :   
+
+.. code-block:: bash
+
+   source /opt/ros/VERSIONROS2/setup.bash
+
+
+*NB : Dans la vidéo la version ROS2 est foxy*  
+
+Pour éviter de le faire dans chaque terminal, nous allons l'ajouter au fichier bash.rc.   
+Ainsi, ajouter la commande précédente à la fin de votre bashrc.  
+Pour modifier votre bashrc, entrez la commande suivante :  
+
+.. code-block:: bash
+
+   sudo nano ~/.bashrc
+
+
+Ajoutez la commande puis fait Ctrl+S puis Ctrl+X, pour sauvegarder et quitter.  
 
 Le groupe *dialout*
 ~~~~~~~~~~~~~~~~~~~~~
@@ -39,8 +80,7 @@ Pour pouvoir utilser ce port, nous devons être inscrit dans le groupe **dialout
 
    whoami
 
-Une fois que vous vous êtes ajouté au groupe, redémarrez votre ordinateur.  
-*NB : il s'agit ici d'une sécurité d'Ubuntu*  
+Une fois que vous vous êtes ajouté au groupe, redémarrez votre ordinateur (*il s'agit ici d'une sécurité d'Ubuntu* ). 
 
 Pour vérifier que vous être bien inscrit au groupe, vous pouvez effectuer la commande suivante :  
 
@@ -63,7 +103,7 @@ Dans l'exemple actuel, nous écrivons les données aux mauvais endroits dans les
 
 .. code-block:: bash
 
-   cd ~/robotis_ws/src/dynamixel_sdk_examples/src && code .
+   cd ~/robotis_ws/src/DynamixelSDK/dynamixel_sdk_examples/src && code .
 
 Changez les lignes 42 à 46 par le code suivant : 
 
@@ -76,6 +116,7 @@ Changez les lignes 42 à 46 par le code suivant :
    #define ADDR_PRESENT_POSITION 36
 
 Pour connaitre les adresses à mettre, se référer à la `datasheet AX-12 <https://emanual.robotis.com/docs/en/dxl/ax/ax-12a/>`_  du moteur dans le tableau *Control Table of RAM Area*.  
+
 *NB : le moteur AX-12 n'a pas de registre pour OPERATING_MODE, nous avons donc mis la valeur 255 pour être sur de ne pas écrire dans registre existant important.*  
 
 Changement du protocol de communication
@@ -91,7 +132,9 @@ Dans le documentation technique du moteur, nous pouvons également trouver qu'il
 Connaître le baudrate
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Enfin, nous devons connaître le **baudrate** de nos moteurs pour pouvoir communiquer avec eux. En effet, nous devons parler et écouter à la même vitesse pour pouvoir se comprendre. Pour connâitre le **baudrate** des moteurs, nous pouvons utiliser le logiciel `Wizard 2.0 <https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/>`_ de chez Dynamixel. En scannant les moteurs, le logiciel va trouver le baudrate.  
+Enfin, nous devons connaître le **baudrate** de nos moteurs pour pouvoir communiquer avec eux. En effet, nous devons parler et écouter à la même vitesse pour pouvoir se comprendre. Pour connâitre le **baudrate** des moteurs, nous pouvons utiliser le logiciel `Wizard 2.0 <https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/>`_ de chez Dynamixel. En scannant les moteurs, le logiciel va trouver le baudrate.    
+
+Si vous rencontrer des difficultés à installer le logiciel, testez la valeur de bauderate suivante : 115200.  
 
 Une fois la valeur du baudrate trouvé, modifier la valeur dans le code à la **ligne 52**.  
 
@@ -102,7 +145,13 @@ Finir le tutoriel
 ~~~~~~~~~~~~~~~~~~~~
 
 Une fois ces étapes réalisées, vous pouvez enfin terminer le `tutoriel <https://www.youtube.com/watch?v=E8XPqDjof4U&ab_channel=ROBOTISOpenSourceTeam>`_  .  
-Les moteurs devraient tourner !
+Les moteurs devraient tourner !  
+
+**N'oubliez pas de sourcer votre environnement pour pouvoir lancer les nodes !** 
+
+.. code-block:: bash
+
+   cd ~/robotis_ws && source install/setup.bash
 
 Explication du code
 ^^^^^^^^^^^^^^^^^^^^^^^^^

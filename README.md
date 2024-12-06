@@ -7,4 +7,6 @@ Ce dépôt contient les sources d'un cours francophone présentant le développe
 - Ce cours constitue une mise en abîme des principes qu'il présente: il est sa propre documentation, et il est disponible à l'adresse suivante: [https://yguel.github.io/informatique_industrielle_avec_ROS2/](https://yguel.github.io/informatique_industrielle_avec_ROS2/)
 
 Il se veut être lui-même un exemple de code documenté, testé, formaté, versionné, reproductible, open-source, et collaboratif.
-Si vous avez des suggestions, des corrections, des améliorations, n'hésitez pas à ouvrir une issue ou une pull request.
+Si vous avez des suggestions, des corrections, des améliorations, n'hésitez pas à ouvrir une issue ou une pull request.  
+
+Le site internet de ce dépot github est le suivant :  [https://romaindgc.github.io/informatique_industrielle_avec_ROS2/](https://romaindgc.github.io/informatique_industrielle_avec_ROS2/)
