@@ -71,6 +71,8 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Utilisation des moteurs dynamixel</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#information-sur-les-moteurs">Information sur les moteurs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#exemple-d-utilisation">Exemple d’utilisation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#clone-le-projet-de-l-exemple-et-le-build">Clone le projet de l’exemple et le build</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sourcer-ros2">Sourcer ROS2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#le-groupe-dialout">Le groupe <em>dialout</em></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adaptation-du-code">Adaptation du code</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#finir-le-tutoriel">Finir le tutoriel</a></li>
@@ -117,8 +119,33 @@
 <section id="exemple-d-utilisation">
 <h2>Exemple d’utilisation<a class="headerlink" href="#exemple-d-utilisation" title="Lien vers cette rubrique"></a></h2>
 <p>Dans cette partie, nous allons réaliser un exemple très simple pour prendre en main le control des moteurs avec ROS2. Pour cela, nous allons nous appuyer sur un exemple de Dynamxiel.</p>
-<p>Dans un premier temps, suivre le tutoriel suivant <strong>jusqu’à 1.47 min</strong>  : <a class="reference external" href="https://www.youtube.com/watch?v=E8XPqDjof4U&amp;ab_channel=ROBOTISOpenSourceTeam">tutoriel</a></p>
-<p>À travers cette partie du tutoriel, nous avons pu réaliser les branchements, téléchager l’exemple et le build.</p>
+<p>Dans un premier temps, suivre le tutoriel suivant <strong>jusqu’à 1.13 min</strong>  : <a class="reference external" href="https://www.youtube.com/watch?v=E8XPqDjof4U&amp;ab_channel=ROBOTISOpenSourceTeam">tutoriel</a></p>
+<p>À travers cette partie du tutoriel, nous avons pu réaliser les branchements et préparer le dossier d’accueil.</p>
+<section id="clone-le-projet-de-l-exemple-et-le-build">
+<h3>Clone le projet de l’exemple et le build<a class="headerlink" href="#clone-le-projet-de-l-exemple-et-le-build" title="Lien vers cette rubrique"></a></h3>
+<p>Si vous possédez <strong>ROS2 Humble</strong>, vous pouvez suivre le tutoriel <strong>jusqu’à 1.47min</strong>.
+En cas d’une autre version de ROS2 ou d’erreurs, entrez la commande suivante pour clone le projet github :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/robotis_ws/src<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>humble-devel<span class="w"> </span>https://github.com/ROBOTIS-GIT/DynmaxielSDK
+</pre></div>
+</div>
+<p>Une fois le projet clone, entrez la commande suivante pour le build :</p>
+<p>Le projet devrait se build sans erreur.</p>
+</section>
+<section id="sourcer-ros2">
+<h3>Sourcer ROS2<a class="headerlink" href="#sourcer-ros2" title="Lien vers cette rubrique"></a></h3>
+<p>Dans le tutoriel, vous voyez la commande suivante :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>/opt/ros/VERSIONROS2/setup.bash
+</pre></div>
+</div>
+<p><em>NB : Dans la vidéo la version ROS2 est foxy</em></p>
+<p>Pour éviter de le faire dans chaque terminal, nous allons l’ajouter au fichier bash.rc.
+Ainsi, ajouter la commande précédente à la fin de votre bashrc.
+Pour modifier votre bashrc, entrez la commande suivante :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nano<span class="w"> </span>~/.bashrc
+</pre></div>
+</div>
+<p>Ajoutez la commande puis fait Ctrl+S puis Ctrl+X, pour sauvegarder et quitter.</p>
+</section>
 <section id="le-groupe-dialout">
 <h3>Le groupe <em>dialout</em><a class="headerlink" href="#le-groupe-dialout" title="Lien vers cette rubrique"></a></h3>
 <p>La partie s’arrête avec la commande suivante :</p>
@@ -131,8 +158,7 @@ Pour pouvoir utilser ce port, nous devons être inscrit dans le groupe <strong>d
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>whoami
 </pre></div>
 </div>
-<p>Une fois que vous vous êtes ajouté au groupe, redémarrez votre ordinateur.
-<em>NB : il s’agit ici d’une sécurité d’Ubuntu</em></p>
+<p>Une fois que vous vous êtes ajouté au groupe, redémarrez votre ordinateur (<em>il s’agit ici d’une sécurité d’Ubuntu</em> ).</p>
 <p>Pour vérifier que vous être bien inscrit au groupe, vous pouvez effectuer la commande suivante :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>groups
 </pre></div>
@@ -145,7 +171,7 @@ Pour pouvoir utilser ce port, nous devons être inscrit dans le groupe <strong>d
 <section id="changement-des-adresses">
 <h4>Changement des adresses<a class="headerlink" href="#changement-des-adresses" title="Lien vers cette rubrique"></a></h4>
 <p>Dans l’exemple actuel, nous écrivons les données aux mauvais endroits dans les moteurs. Pour corriger cela, nous devons ajuster les adresses. Pour cela, rendez-vous dans le code de l’exemple, le fichier <strong>read_write_node.cpp</strong>. Si vous avez suivi la même nomenclature que dans l’exemple, la commande suivante devrait l’ouvrir :</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/robotis_ws/src/dynamixel_sdk_examples/src<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>code<span class="w"> </span>.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/robotis_ws/src/DynamixelSDK/dynamixel_sdk_examples/src<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>code<span class="w"> </span>.
 </pre></div>
 </div>
 <p>Changez les lignes 42 à 46 par le code suivant :</p>
@@ -156,8 +182,8 @@ Pour pouvoir utilser ce port, nous devons être inscrit dans le groupe <strong>d
 <span class="cp">#define ADDR_PRESENT_POSITION 36</span>
 </pre></div>
 </div>
-<p>Pour connaitre les adresses à mettre, se référer à la <a class="reference external" href="https://emanual.robotis.com/docs/en/dxl/ax/ax-12a/">datasheet AX-12</a>  du moteur dans le tableau <em>Control Table of RAM Area</em>.
-<em>NB : le moteur AX-12 n’a pas de registre pour OPERATING_MODE, nous avons donc mis la valeur 255 pour être sur de ne pas écrire dans registre existant important.</em></p>
+<p>Pour connaitre les adresses à mettre, se référer à la <a class="reference external" href="https://emanual.robotis.com/docs/en/dxl/ax/ax-12a/">datasheet AX-12</a>  du moteur dans le tableau <em>Control Table of RAM Area</em>.</p>
+<p><em>NB : le moteur AX-12 n’a pas de registre pour OPERATING_MODE, nous avons donc mis la valeur 255 pour être sur de ne pas écrire dans registre existant important.</em></p>
 </section>
 <section id="changement-du-protocol-de-communication">
 <h4>Changement du protocol de communication<a class="headerlink" href="#changement-du-protocol-de-communication" title="Lien vers cette rubrique"></a></h4>
@@ -169,6 +195,7 @@ Pour pouvoir utilser ce port, nous devons être inscrit dans le groupe <strong>d
 <section id="connaitre-le-baudrate">
 <h4>Connaître le baudrate<a class="headerlink" href="#connaitre-le-baudrate" title="Lien vers cette rubrique"></a></h4>
 <p>Enfin, nous devons connaître le <strong>baudrate</strong> de nos moteurs pour pouvoir communiquer avec eux. En effet, nous devons parler et écouter à la même vitesse pour pouvoir se comprendre. Pour connâitre le <strong>baudrate</strong> des moteurs, nous pouvons utiliser le logiciel <a class="reference external" href="https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/">Wizard 2.0</a> de chez Dynamixel. En scannant les moteurs, le logiciel va trouver le baudrate.</p>
+<p>Si vous rencontrer des difficultés à installer le logiciel, testez la valeur de bauderate suivante : 115200.</p>
 <p>Une fois la valeur du baudrate trouvé, modifier la valeur dans le code à la <strong>ligne 52</strong>.</p>
 <p>De plus, ce logiciel permet également de controller les moteurs basiquement pour voir si ces derniers fonctionnent bien.</p>
 </section>
@@ -177,6 +204,10 @@ Pour pouvoir utilser ce port, nous devons être inscrit dans le groupe <strong>d
 <h3>Finir le tutoriel<a class="headerlink" href="#finir-le-tutoriel" title="Lien vers cette rubrique"></a></h3>
 <p>Une fois ces étapes réalisées, vous pouvez enfin terminer le <a class="reference external" href="https://www.youtube.com/watch?v=E8XPqDjof4U&amp;ab_channel=ROBOTISOpenSourceTeam">tutoriel</a>  .
 Les moteurs devraient tourner !</p>
+<p><strong>N’oubliez pas de sourcer votre environnement pour pouvoir lancer les nodes !</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/robotis_ws<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>install/setup.bash
+</pre></div>
+</div>
 <section id="explication-du-code">
 <h4>Explication du code<a class="headerlink" href="#explication-du-code" title="Lien vers cette rubrique"></a></h4>
 </section>
