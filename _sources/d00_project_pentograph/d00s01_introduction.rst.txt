@@ -44,11 +44,11 @@ Voici quelques caractéristiques techniques  de la Raspberry PI 5 :
  Voir le site de `Raspberry <https://www.raspberrypi.com/products/raspberry-pi-5/>`_ pour plus de détails.
 
 ***************************
-Spécifications de stockage
+Spécifications de stockage 
 ***************************
 
 Voici quelques caractéristiques techniques  du Solid State Drive : 
- * Capacité : 256GB 
+ * Capacité : 256GB  $
  * Mémoire flash NAND : 3D NAND 
  * Lecture séquentielle (max) : Jusqu’à 2 000 Mo/s
  * Ecriture séquentielle (max) : Jusqu’à 1 600 Mo/s
