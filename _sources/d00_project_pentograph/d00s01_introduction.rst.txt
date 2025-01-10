@@ -43,9 +43,9 @@ Voici quelques caractéristiques techniques  de la Raspberry PI 5 :
 
  Voir le site de `Raspberry <https://www.raspberrypi.com/products/raspberry-pi-5/>`_ pour plus de détails.
 
-*******************
-Spécification strorage
-*******************
+***************************
+Spécifications de stockage
+***************************
 
 Voici quelques caractéristiques techniques  du Solid State Drive : 
  * Capacité : 256GB 
@@ -54,10 +54,10 @@ Voici quelques caractéristiques techniques  du Solid State Drive :
  * Ecriture séquentielle (max) : Jusqu’à 1 600 Mo/s
 
 Voir le site de `SSD <https://www.adata.com/fr/consumer/category/ssds/solid-state-drives-legend-700/?tab=description>`_ pour plus de détails.
-La base NVMe permet d'acceuillir le SSD afin de le lier à la RPI5.  
+La base NVMe permet d'accueillir le SSD afin de le lier à la RPI5.  
 
 *****************************
-Spécification moteur AX-12
+Spécifications moteur AX-12
 *****************************
 
 Voici quelques caractéristiques techniques du moteur AX-12 de chez Dynamixel : 
@@ -68,4 +68,4 @@ Voici quelques caractéristiques techniques du moteur AX-12 de chez Dynamixel :
    * Tension d'entrée : 9.0V à 12.0V - recommandée : 11.1V  
    * Feedback : Position, Température, Charge, Tension d'entrée,...  
 
-Voir la `datasheet AX-12 <https://emanual.robotis.com/docs/en/dxl/ax/ax-12a/>`_ du moteur pour plus d'information.   
+Voir la `datasheet AX-12 <https://emanual.robotis.com/docs/en/dxl/ax/ax-12a/>`_ du moteur pour plus d'informations.   
