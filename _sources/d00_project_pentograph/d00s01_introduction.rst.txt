@@ -21,7 +21,7 @@ Liste du matériel
 #. `Active cooler <https://www.raspberrypi.com/products/active-cooler/>`_ (Raspberry PI 5 offical)
 #. `NVMe Base <https://shop.pimoroni.com/products/nvme-base?variant=41219587178579>`_  
 #. `SSD <https://www.adata.com/fr/consumer/category/ssds/solid-state-drives-legend-700/?tab=description>`_  (storage)
-#. Maquette pentographe équipée de 2 `moteurs AX-12 <https://emanual.robotis.com/docs/en/dxl/ax/ax-12a/>`_  de chez Dynamixel
+#. Maquette pantographe équipée de 2 `moteurs AX-12 <https://emanual.robotis.com/docs/en/dxl/ax/ax-12a/>`_  de chez Dynamixel
 #. USB communication converter `U2D2 <https://emanual.robotis.com/docs/en/parts/interface/u2d2/>`_
 
 

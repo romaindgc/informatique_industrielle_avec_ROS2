@@ -145,7 +145,7 @@ Finir le tutoriel
 ~~~~~~~~~~~~~~~~~~~~
 
 Une fois ces étapes réalisées, vous pouvez enfin terminer le `tutoriel <https://www.youtube.com/watch?v=E8XPqDjof4U&ab_channel=ROBOTISOpenSourceTeam>`_  .  
-Les moteurs devraient tourner !  
+Les moteurs devraient tourner. 
 
 **N'oubliez pas de sourcer votre environnement pour pouvoir lancer les nodes !** 
 
