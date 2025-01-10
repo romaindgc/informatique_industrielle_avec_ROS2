@@ -13,7 +13,7 @@ La première étape consiste donc à insérer la carte SD en question dans la Ra
    :align: center
    :width: 30%
 
-Une fois ceci fait, nous devons brancher une souris et un clavier d'ordinateur à la PI dans les ports USB prévus à cet effet. Il ne nous reste plus qu'à brancher un écran et à alimenter la Rasberry Pi à l'aide de notre alimentation.
+Une fois ceci fait, nous devons brancher une souris et un clavier d'ordinateur à la PI dans les ports USB prévus à cet effet. Il ne nous reste plus qu'à brancher un écran et à alimenter la Rasberry Pi 5 à l'aide de notre alimentation.
 
 .. figure:: resources/img/branchement_rpi.jpg
    :align: center
