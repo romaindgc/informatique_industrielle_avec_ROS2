@@ -43,6 +43,6 @@ Nous pouvons maintenant commencer `ce tutoriel <https://learn.pimoroni.com/artic
 
       Illustration de l'insertion du SSD dans la base.
 
-   Nous ne souhaitons pas ajouter "un chapeau" sur le RPI5 ainsi les petites vis suffiront.
+   Nous ne souhaitons pas ajouter "un chapeau" sur le RPI5 ainsi les petites vis suffiront.  
 
 Une fois le tutoriel réalisé, nous avons fini l'assemblage des différents composants. Il nous reste à présent à nous occuper du software.
