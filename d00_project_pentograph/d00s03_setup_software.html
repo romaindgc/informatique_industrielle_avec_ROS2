@@ -27,7 +27,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Utilisation des moteurs dynamixel" href="d00s04_moteurs.html" />
+    <link rel="next" title="Utilisation des moteurs Dynamixel" href="d00s04_moteurs.html" />
     <link rel="prev" title="Montage du hardware" href="d00s02_montage_hardware.html" /> 
 </head>
 
@@ -69,10 +69,10 @@
 <li class="toctree-l2"><a class="reference internal" href="d00s01_introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="d00s02_montage_hardware.html">Montage du hardware</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Setup du software</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#installer-ubuntu-sur-la-rpi5">Installer Ubuntu sur la RPI5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installer-ubuntu-sur-la-raspberry-pi-5">Installer Ubuntu sur la Raspberry Pi 5</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="d00s04_moteurs.html">Utilisation des moteurs dynamixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d00s04_moteurs.html">Utilisation des moteurs Dynamixel</a></li>
 </ul>
 </li>
 </ul>
@@ -104,20 +104,50 @@
              
   <section id="setup-du-software">
 <h1>Setup du software<a class="headerlink" href="#setup-du-software" title="Lien vers cette rubrique"></a></h1>
-<section id="installer-ubuntu-sur-la-rpi5">
-<h2>Installer Ubuntu sur la RPI5<a class="headerlink" href="#installer-ubuntu-sur-la-rpi5" title="Lien vers cette rubrique"></a></h2>
-<p>La première étape ici, consiste à installer Ubuntu sur la RPI5.
-Nous avons à disposition une carte SD pré-programée avec l’OS Raspberry Pi.
-La première étape consiste donc à insérer la carte SD en question dans la Rasberry Pi comme indiqué sur l’image ci-dessous:</p>
-<figure class="align-center">
+<section id="installer-ubuntu-sur-la-raspberry-pi-5">
+<h2>Installer Ubuntu sur la Raspberry Pi 5<a class="headerlink" href="#installer-ubuntu-sur-la-raspberry-pi-5" title="Lien vers cette rubrique"></a></h2>
+<p>Dans cette section, nous allons installer Ubuntu sur la Raspberry Pi 5.
+Nous disposons d’une carte SD pré-programmée avec l’OS Raspberry Pi. La première étape consiste à insérer cette carte SD dans la Raspberry Pi, comme indiqué sur l’image ci-dessous :</p>
+<figure class="align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/sd_rasberry.jpg"><img alt="../_images/sd_rasberry.jpg" src="../_images/sd_rasberry.jpg" style="width: 30%;" />
 </a>
+<figcaption>
+<p><span class="caption-text">Insertion de la carte SD dans la Raspberry Pi.</span><a class="headerlink" href="#id1" title="Lien vers cette image"></a></p>
+</figcaption>
 </figure>
-<p>Une fois ceci fait, nous devons brancher une souris et un clavier d’ordinateur à la PI dans les ports USB prévus à cet effet. Il ne nous reste plus qu’à brancher un écran et à alimenter la Rasberry Pi 5 à l’aide de notre alimentation.</p>
-<figure class="align-center">
+<p>Ensuite, branchez une souris et un clavier aux ports USB de la Raspberry Pi. Connectez également un écran via le port HDMI, puis alimentez la Raspberry Pi 5 à l’aide de l’alimentation fournie.</p>
+<figure class="align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/branchement_rpi.jpg"><img alt="../_images/branchement_rpi.jpg" src="../_images/branchement_rpi.jpg" style="width: 30%;" />
 </a>
+<figcaption>
+<p><span class="caption-text">Connexion des périphériques à la Raspberry Pi.</span><a class="headerlink" href="#id2" title="Lien vers cette image"></a></p>
+</figcaption>
 </figure>
+<p>Une fois la Raspberry Pi allumée et connectée à Internet, rendez-vous sur le site suivant : <a class="reference external" href="https://ubuntu.com/download/raspberry-pi">Ubuntu.com</a>.
+Sur ce site, vous trouverez les instructions pour installer le logiciel <em>rpi-imager</em>, qui permet de flasher un périphérique de stockage (disque dur, carte SD, etc.).</p>
+<p>Dans notre cas, nous allons flasher un disque dur avec l’image d’Ubuntu 24.04.1. Téléchargez la version indiquée sur l’image ci-dessous (bouton vert), disponible sur la même page :</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../_images/ubuntu2401LTS.png"><img alt="../_images/ubuntu2401LTS.png" src="../_images/ubuntu2401LTS.png" style="width: 30%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Téléchargement de l’image Ubuntu 24.04.1 LTS.</span><a class="headerlink" href="#id3" title="Lien vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>Après avoir téléchargé le fichier, lancez le logiciel <em>rpi-imager</em>.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/rpi-imager.png"><img alt="../_images/rpi-imager.png" src="../_images/rpi-imager.png" style="width: 30%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Interface du logiciel rpi-imager.</span><a class="headerlink" href="#id4" title="Lien vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>Dans le logiciel, procédez comme suit :</p>
+<ol class="arabic simple">
+<li><p><strong>Device</strong> : Sélectionnez la Raspberry Pi 5.</p></li>
+<li><p><strong>OS</strong> : Choisissez le fichier Ubuntu 24.04.1 que vous venez de télécharger.</p></li>
+<li><p><strong>Storage</strong> : Sélectionnez le disque dur.</p></li>
+</ol>
+<p>Le disque dur sera ensuite flashé avec l’image d’Ubuntu.</p>
 </section>
 </section>
 
@@ -126,7 +156,7 @@ La première étape consiste donc à insérer la carte SD en question dans la Ra
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
         <a href="d00s02_montage_hardware.html" class="btn btn-neutral float-left" title="Montage du hardware" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
-        <a href="d00s04_moteurs.html" class="btn btn-neutral float-right" title="Utilisation des moteurs dynamixel" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="d00s04_moteurs.html" class="btn btn-neutral float-right" title="Utilisation des moteurs Dynamixel" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
